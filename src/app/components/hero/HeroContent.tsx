@@ -3,12 +3,12 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import { useInView } from "react-intersection-observer";
 import Container from "../../components/Container";
 
 function HeroContent() {
-  const words = ["Websites", "MVPs", "Experiences", "Solutions"];
+  const words = useMemo(() => ["Websites", "MVPs", "Experiences", "Solutions"], []);
   const [currentText, setCurrentText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
@@ -114,7 +114,7 @@ function HeroContent() {
               transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
               className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-serif mb-6 leading-tight"
             >
-              I'm <span className="font-medium">Anish</span>
+              I&apos;m <span className="font-medium">Anish</span>
             </motion.h1>
 
             <motion.div

@@ -5,6 +5,8 @@ import { useState } from "react";
 import { useInView } from "react-intersection-observer";
 
 function TestimonialContent() {
+  // These are kept but commented as they might be used elsewhere in the component
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [activeTestimonial, setActiveTestimonial] = useState(0);
 
   const [headerRef, headerInView] = useInView({
@@ -100,7 +102,7 @@ function TestimonialContent() {
           transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
           className="text-gray-700 max-w-2xl"
         >
-          Real feedback from businesses I've worked with to create impactful
+          Real feedback from businesses I&apos;ve worked with to create impactful
           digital experiences.
         </motion.p>
       </motion.div>

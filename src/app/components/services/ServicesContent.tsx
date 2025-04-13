@@ -5,6 +5,7 @@ import { useState } from "react";
 import { useInView } from "react-intersection-observer";
 
 function ServicesContent() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [activeService, setActiveService] = useState<number | null>(null);
 
   const [headerRef, headerInView] = useInView({
@@ -221,7 +222,7 @@ function ServicesContent() {
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
             className="text-gray-700 mb-10"
           >
-            Let's collaborate to create a digital experience that elevates your
+            Let&apos;s collaborate to create a digital experience that elevates your
             brand, engages your audience, and drives business results.
           </motion.p>
           <motion.div

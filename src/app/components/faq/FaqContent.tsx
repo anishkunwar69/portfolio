@@ -30,12 +30,12 @@ function FaqContent() {
     {
       question: "How does your design and development process work?",
       answer:
-        "My process begins with understanding your business goals, target audience, and specific requirements. I then create wireframes and design mockups for your approval. Once the design is finalized, I move to development, building your website with clean, efficient code. Throughout the process, you'll receive regular updates and opportunities for feedback. After thorough testing, we launch your website and I provide training on how to manage it. The entire process typically takes 4-8 weeks depending on project complexity.",
+        "My process begins with understanding your business goals, target audience, and specific requirements. I then create wireframes and design mockups for your approval. Once the design is finalized, I move to development, building your website with clean, efficient code. Throughout the process, you&apos;ll receive regular updates and opportunities for feedback. After thorough testing, we launch your website and I provide training on how to manage it. The entire process typically takes 4-8 weeks depending on project complexity.",
     },
     {
       question: "What makes your websites different from others?",
       answer:
-        "My websites stand out because they're strategically designed to convert visitors into customers. I focus on creating intuitive user experiences with compelling visuals that reflect your brand identity. Each website I build is optimized for performance, SEO, and mobile responsiveness. Unlike template-based websites, my custom solutions are tailored specifically to your business objectives and include unique interactive elements that engage your visitors and set you apart from competitors.",
+        "My websites stand out because they are strategically designed to convert visitors into customers. I focus on creating intuitive user experiences with compelling visuals that reflect your brand identity. Each website I build is optimized for performance, SEO, and mobile responsiveness. Unlike template-based websites, my custom solutions are tailored specifically to your business objectives and include unique interactive elements that engage your visitors and set you apart from competitors.",
     },
     {
       question: "How quickly can you deliver an MVP for startups?",
@@ -220,7 +220,7 @@ function FaqContent() {
               Still have questions?
             </h3>
             <p className="text-gray-600 text-sm">
-              Get in touch and I'll be happy to help you with any queries.
+              Get in touch and I&apos;ll be happy to help you with any queries.
             </p>
           </motion.div>
           <motion.a
