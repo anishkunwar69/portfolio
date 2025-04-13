@@ -1,4 +1,3 @@
-import Contact from "./sections/Contact";
 import Faq from "./sections/Faq";
 import Footer from "./sections/Footer";
 import Hero from "./sections/Hero";
