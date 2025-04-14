@@ -217,7 +217,7 @@ function PortfolioContent() {
       description:
         "A brand-focused website for a traditional tea company that showcases their unique offerings and multiple branch locations. The site enhances their online presence while preserving their cultural heritage through modern design.",
       tags: ["Branding", "Web Design", "Frontend-heavy"],
-      image: "/demo.jpg",
+      image: "/dm222.png",
       website: "https://iranichiya.com",
     },
     {
@@ -226,7 +226,7 @@ function PortfolioContent() {
       description:
         "An MVP fitness application that enables users to track and record their gym progress. Features intuitive workout logging, progress visualization, and personalized fitness journey tracking.",
       tags: ["Web App", "Full Stack", "MVP"],
-      image: "/demo.jpg",
+      image: "/d3.png",
       website: "https://fitpal-ashen.vercel.app/",
     },
   ];
