@@ -217,8 +217,8 @@ function PortfolioContent() {
       id: 1,
       title: "Irani Chiya",
       description:
-        "A premium e-commerce solution for a leading tea brand, featuring seamless shopping experience, secure payment integration, and custom inventory management.",
-      tags: ["E-commerce", "Full Stack", "Backend-heavy"],
+        "A brand-focused website for a traditional tea company that showcases their unique offerings and multiple branch locations. The site enhances their online presence while preserving their cultural heritage through modern design.",
+      tags: ["Branding", "Web Design", "Frontend-heavy"],
       image: "/dm.png",
       website: "https://iranichiya.com",
     },
@@ -226,8 +226,8 @@ function PortfolioContent() {
       id: 2,
       title: "FitPal Fitness App",
       description:
-        "A premium e-commerce solution for a leading tea brand, featuring seamless shopping experience, secure payment integration, and custom inventory management.",
-      tags: ["Web App", "Frontend-heavy", "MVP"],
+        "An MVP fitness application that enables users to track and record their gym progress. Features intuitive workout logging, progress visualization, and personalized fitness journey tracking.",
+      tags: ["Web App", "Full Stack", "MVP"],
       image: "/dm2.png",
       website: "https://fitpal-ashen.vercel.app/",
     },
