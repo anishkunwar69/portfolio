@@ -140,7 +140,7 @@ function FaqContent() {
                   >
                     {(index + 1).toString().padStart(2, "0")}
                   </motion.span>
-                  <h3 className="text-lg font-medium text-gray-800">
+                  <h3 className="sm:text-lg text-sm font-medium text-gray-800">
                     {faq.question}
                   </h3>
                 </div>

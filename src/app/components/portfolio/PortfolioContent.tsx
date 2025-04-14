@@ -78,14 +78,12 @@ function ProjectItem({ project, index, onMouseEnter, onMouseLeave, isFocused }: 
               } -top-8 w-1/2 h-1/2 border-2 border-blue-500/20 -z-10`}
             ></motion.div>
 
-            <div className="relative overflow-hidden aspect-[16/10]">
+            <div className="relative overflow-hidden aspect-[16/10] cursor-pointer">
               <Image
                 src={project.image}
                 alt={project.title}
                 fill
-                className={`object-cover transition-all duration-700 ${
-                  isFocused ? "scale-105" : "scale-100"
-                }`}
+                className="object-cover transition-all duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                 <div className="p-6">
@@ -219,7 +217,7 @@ function PortfolioContent() {
       description:
         "A brand-focused website for a traditional tea company that showcases their unique offerings and multiple branch locations. The site enhances their online presence while preserving their cultural heritage through modern design.",
       tags: ["Branding", "Web Design", "Frontend-heavy"],
-      image: "/dm.png",
+      image: "/demo.jpg",
       website: "https://iranichiya.com",
     },
     {
@@ -228,7 +226,7 @@ function PortfolioContent() {
       description:
         "An MVP fitness application that enables users to track and record their gym progress. Features intuitive workout logging, progress visualization, and personalized fitness journey tracking.",
       tags: ["Web App", "Full Stack", "MVP"],
-      image: "/dm2.png",
+      image: "/demo.jpg",
       website: "https://fitpal-ashen.vercel.app/",
     },
   ];
