@@ -175,7 +175,7 @@ function ProjectItem({ project, index, onMouseEnter, onMouseLeave, isFocused }: 
               className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors text-sm"
             >
               <span className="border-b border-transparent hover:border-blue-600 pb-1">
-                View Case Study
+                View Website
               </span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -229,7 +229,7 @@ function PortfolioContent() {
         "A premium e-commerce solution for a leading tea brand, featuring seamless shopping experience, secure payment integration, and custom inventory management.",
       tags: ["Web App", "Frontend-heavy", "MVP"],
       image: "/dm2.png",
-      website: "https://fitpal.com",
+      website: "https://fitpal-ashen.vercel.app/",
     },
   ];
 

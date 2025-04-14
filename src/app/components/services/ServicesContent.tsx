@@ -30,6 +30,7 @@ function ServicesContent() {
       description:
         "Captivating websites that tell your brand story, engage visitors, and drive conversions through data-driven design.",
       icon: "design",
+      badge: "UI/UX Focused"
     },
     {
       id: 2,
@@ -37,6 +38,7 @@ function ServicesContent() {
       description:
         "Tailor-made digital solutions that transform your ideas into powerful, engaging experiences with clean, efficient code.",
       icon: "code",
+      badge: "Custom Built"
     },
     {
       id: 3,
@@ -44,6 +46,7 @@ function ServicesContent() {
       description:
         "Convert browsers to buyers with intuitive shopping experiences designed to maximize sales and customer satisfaction.",
       icon: "shopping",
+      badge: "Sales Driven"
     },
     {
       id: 4,
@@ -51,6 +54,7 @@ function ServicesContent() {
       description:
         "Rapidly bring your startup idea to life with lean, scalable MVPs that help you validate concepts and secure funding.",
       icon: "rocket",
+      badge: "Fast Launch"
     },
     {
       id: 5,
@@ -58,6 +62,7 @@ function ServicesContent() {
       description:
         "Empower your team to effortlessly manage and update website content using intuitive, user-friendly content management systems.",
       icon: "cms",
+      badge: "Self-Managed"
     },
     {
       id: 6,
@@ -65,6 +70,7 @@ function ServicesContent() {
       description:
         "Keep your digital presence running smoothly with dedicated maintenance, updates, and ongoing optimization.",
       icon: "support",
+      badge: "Ongoing Support"
     },
   ];
 
@@ -174,26 +180,9 @@ function ServicesContent() {
                 ease: "easeOut",
               }}
             >
-              <Link
-                href={`/services/${service.id}`}
-                className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors"
-              >
-                <span>Learn more</span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="18"
-                  height="18"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="ml-2"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </Link>
+              <div className="inline-flex items-center text-blue-600">
+                <span className="text-xs uppercase tracking-wide font-medium py-1 px-2 bg-blue-50 rounded">{service.badge}</span>
+              </div>
             </motion.div>
           </motion.div>
         ))}
