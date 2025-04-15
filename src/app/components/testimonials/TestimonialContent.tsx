@@ -29,17 +29,17 @@ function TestimonialContent() {
       type: "video",
       embedId: "V8ioj6B1ICY",
       quote:
-        "Anish's web development skills completely transformed our online presence. The site he built for us is not only beautiful but incredibly functional. The results were beyond our expectations.",
+        "Anish transformed our online presence by creating a website that showcases our branches and tea offerings beautifully. He understood our vision and balanced modern design with our traditional roots. The site has given us a competitive edge and become essential to our business growth.",
       author: "Saroj Paudel",
       company: "Irani Chiya",
       role: "Founder & CEO",
-      profileImage: "/t1.jpg",
+      profileImage: "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/anish's-portfolio/hmpkw3fuaextkb76zl0b",
     },
     {
       type: "video",
-      embedId: "V8ioj6B1ICY",
+      embedId: "ERHn-NqILaA",
       quote:
-        "Working with Anish was a game-changer for our business. He understood exactly what we needed and delivered beyond our expectations. Our conversion rate increased by 35% within the first month.",
+        "As FitPal's founder, I needed an MVP fitness tracking app built quickly. Anish delivered an intuitive platform with a clean interface that makes tracking gym progress simple. His ability to balance functionality with user experience and suggest crucial features set him apart. The result has been instrumental for our startup.",
       author: "Rinchen Phuntsok",
       company: "FitPal",
       role: "Founder",
@@ -48,20 +48,19 @@ function TestimonialContent() {
     {
       type: "text",
       quote:
-        "As a startup founder, I needed a website that would help establish credibility quickly. Anish delivered a stunning site that perfectly captured our brand's essence and has significantly increased our conversion rate by 45%. His attention to detail and focus on user experience made all the difference.",
+        "As a healthcare startup founder, I needed a developer who could build a complex medical app with multiple systems. Anish delivered CareNest Nepal with symptom tracking, telemedicine, and user management features that exceeded our expectations. His attention to technical details and focus on creating an intuitive user experience significantly improved patient engagement.",
       author: "Suman Singh Bhujel",
-      company: "TechLift",
-      role: "CTO",
-      profileImage: "/t1.jpg",
+      company: "CareNest Nepal",
+      role: "",
+      profileImage: "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/anish's-portfolio/andax5bkrmhec5i7ke7d",
     },
     {
       type: "text",
-      quote:
-        "Collaborating with Anish on our e-commerce platform was the best decision we made for our business. He not only created a visually stunning website but also implemented intuitive user flows that drastically improved our customer journey. Our sales have increased by 60% since launch.",
-      author: "Maya Sharma",
-      company: "ArtisanCraft",
-      role: "Marketing Director",
-      profileImage: "/t1.jpg",
+      quote:"Working with Anish on my graphic design portfolio was the best investment for my creative career. He crafted a visually striking website that perfectly showcases my work while implementing intuitive navigation that enhances the viewing experience. It has really helped me to elevate my online presence and branding further.",
+      author: "Priyanci Dhakal",
+      company: "",
+      role: "Graphic Designer",
+      profileImage: "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/anish's-portfolio/fmhwhxsq7xi8yeusayk0",
     },
   ];
 
@@ -290,7 +289,7 @@ function TestimonialContent() {
                       {testimonial.author}
                     </p>
                     <p className="text-sm text-gray-500">
-                      {testimonial.role}, {testimonial.company}
+                      {testimonial.role} {(testimonial.role && testimonial.company) && ","} {testimonial.company}
                     </p>
                   </div>
                 </motion.div>

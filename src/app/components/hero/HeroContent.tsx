@@ -185,7 +185,7 @@ function HeroContent() {
               ></motion.div>
               <div className="absolute inset-0 shadow-2xl rounded-lg overflow-hidden">
                 <Image
-                  src="/hero.jpg"
+                  src="https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/anish's-portfolio/ojfbnh6rcoauwn2rcdk5"
                   alt="Anish"
                   fill
                   className="object-cover transition-transform duration-700 hover:scale-105"

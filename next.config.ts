@@ -5,7 +5,8 @@ const nextConfig: NextConfig = {
   images: {
     domains: [
       'media.istockphoto.com',
-      'scontent.fktm20-1.fna.fbcdn.net'
+      'scontent.fktm20-1.fna.fbcdn.net',
+      'res.cloudinary.com'
     ],
   },
 };
