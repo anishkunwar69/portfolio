@@ -98,10 +98,10 @@ function FaqContent() {
               </button>
 
               <div
-                className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                className={`overflow-hidden transition-opacity duration-300 ease-out ${
                   activeIndex === index 
-                    ? "max-h-[500px] opacity-100" 
-                    : "max-h-0 opacity-0"
+                    ? "opacity-100 h-auto" 
+                    : "opacity-0 h-0"
                 }`}
               >
                 <div className="px-6 py-4 border-l-2 border-blue-100 ml-6">
