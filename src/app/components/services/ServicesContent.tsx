@@ -106,7 +106,7 @@ function ServicesContent() {
         ))}
       </div>
 
-      <div className="mt-20 border-gray-100">
+      <div className="mt-20 border-gray-100 max-lg:-ml-[13px]">
         <div className="max-w-3xl mx-auto text-center">
           <h3 className="text-2xl md:text-3xl font-serif mb-6">
             Ready to bring your{" "}
