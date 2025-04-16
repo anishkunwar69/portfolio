@@ -1,27 +1,10 @@
 "use client";
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
-import { useInView } from "react-intersection-observer";
 
 function ServicesContent() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [activeService, setActiveService] = useState<number | null>(null);
-
-  const [headerRef, headerInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
-  });
-
-  const [servicesRef, servicesInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
-  const [ctaRef, ctaInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
-  });
 
   const services = [
     {
@@ -76,150 +59,64 @@ function ServicesContent() {
 
   return (
     <div className="py-20">
-      <motion.div
-        ref={headerRef}
-        initial={{ opacity: 0 }}
-        animate={headerInView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="mb-16 relative"
-      >
-        <motion.div
-          initial={{ height: 0 }}
-          animate={headerInView ? { height: "6rem" } : {}}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="absolute -left-4 top-0 w-1 h-24 bg-blue-500"
-        ></motion.div>
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={headerInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-sm uppercase tracking-wider text-gray-500 mb-2"
-        >
+      <div className="mb-16 relative">
+        <div className="absolute -left-4 top-0 w-1 h-24 bg-blue-500"></div>
+        <h2 className="text-sm uppercase tracking-wider text-gray-500 mb-2">
           Services
-        </motion.h2>
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={headerInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
-          className="text-4xl md:text-5xl font-serif mb-6"
-        >
+        </h2>
+        <h1 className="text-4xl md:text-5xl font-serif mb-6">
           What I <span className="text-blue-600">Offer</span>
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={headerInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-          className="text-gray-700 max-w-2xl"
-        >
+        </h1>
+        <p className="text-gray-700 max-w-2xl">
           I create custom web solutions that elevate your brand, convert
           visitors into customers, and give you a competitive edge in the
           digital landscape.
-        </motion.p>
-      </motion.div>
+        </p>
+      </div>
 
-      <motion.div
-        ref={servicesRef}
-        initial={{ opacity: 0 }}
-        animate={servicesInView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.4, ease: "easeOut" }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16"
-      >
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
         {services.map((service, index) => (
-          <motion.div
+          <div
             key={service.id}
-            initial={{ opacity: 0, y: 30 }}
-            animate={servicesInView ? { opacity: 1, y: 0 } : {}}
-            transition={{
-              duration: 0.6,
-              delay: 0.1 * index,
-              ease: "easeOut",
-            }}
             className="bg-gray-50 rounded-lg p-8 transition-all duration-300 hover:shadow-lg group relative overflow-hidden"
             onMouseEnter={() => setActiveService(service.id)}
             onMouseLeave={() => setActiveService(null)}
           >
             <div className="absolute top-0 left-0 w-1 h-0 bg-blue-500 transition-all duration-300 group-hover:h-full"></div>
 
-            <motion.div
-              initial={{ opacity: 0, x: -10 }}
-              animate={servicesInView ? { opacity: 1, x: 0 } : {}}
-              transition={{
-                duration: 0.5,
-                delay: 0.2 + 0.1 * index,
-                ease: "easeOut",
-              }}
-              className="mb-6 flex items-center"
-            >
+            <div className="mb-6 flex items-center">
               <span className="text-blue-600 text-2xl font-light mr-4">
                 {service.id.toString().padStart(2, "0")}
               </span>
               <h3 className="text-xl font-medium text-gray-800">
                 {service.title}
               </h3>
-            </motion.div>
+            </div>
 
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={servicesInView ? { opacity: 1 } : {}}
-              transition={{
-                duration: 0.5,
-                delay: 0.3 + 0.1 * index,
-                ease: "easeOut",
-              }}
-              className="text-gray-600 mb-6"
-            >
+            <p className="text-gray-600 mb-6">
               {service.description}
-            </motion.p>
+            </p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={servicesInView ? { opacity: 1, y: 0 } : {}}
-              transition={{
-                duration: 0.5,
-                delay: 0.4 + 0.1 * index,
-                ease: "easeOut",
-              }}
-            >
+            <div>
               <div className="inline-flex items-center text-blue-600">
                 <span className="text-xs uppercase tracking-wide font-medium py-1 px-2 bg-blue-50 rounded">{service.badge}</span>
               </div>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
         ))}
-      </motion.div>
+      </div>
 
-      <motion.div
-        ref={ctaRef}
-        initial={{ opacity: 0, y: 40 }}
-        animate={ctaInView ? { opacity: 1, y: 0 } : {}}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="mt-20 border-gray-100"
-      >
+      <div className="mt-20 border-gray-100">
         <div className="max-w-3xl mx-auto text-center">
-          <motion.h3
-            initial={{ opacity: 0, y: 20 }}
-            animate={ctaInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="text-2xl md:text-3xl font-serif mb-6"
-          >
+          <h3 className="text-2xl md:text-3xl font-serif mb-6">
             Ready to bring your{" "}
             <span className="text-blue-600">vision to life</span>?
-          </motion.h3>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={ctaInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-            className="text-gray-700 mb-10"
-          >
+          </h3>
+          <p className="text-gray-700 mb-10">
             Let&apos;s collaborate to create a digital experience that elevates your
             brand, engages your audience, and drives business results.
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={ctaInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-            className="flex flex-wrap justify-center gap-6"
-          >
+          </p>
+          <div className="flex flex-wrap justify-center gap-6">
             <Link
               href="https://www.instagram.com/anishkunwarr/"
               target="_blank"
@@ -236,9 +133,9 @@ function ServicesContent() {
               <span className="absolute inset-0 w-0 bg-gray-100 transition-all duration-300 ease-out group-hover:w-full"></span>
               <span className="relative text-gray-800">View Portfolio</span>
             </Link>
-          </motion.div>
+          </div>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }

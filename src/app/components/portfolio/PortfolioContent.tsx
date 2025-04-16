@@ -1,8 +1,6 @@
 "use client";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { useState } from "react";
-import { useInView } from "react-intersection-observer";
 
 // Define types
 interface ProjectType {
@@ -24,26 +22,14 @@ interface ProjectItemProps {
 
 // Separate component for project items to safely use hooks
 function ProjectItem({ project, index, onMouseEnter, onMouseLeave, isFocused }: ProjectItemProps) {
-  const [projectRef, projectInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
   return (
-    <motion.div
+    <div
       key={project.id}
-      ref={projectRef}
-      initial={{ opacity: 0, y: 80 }}
-      animate={projectInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8, ease: "easeOut" }}
       className="relative"
       onMouseEnter={() => onMouseEnter(project.id)}
       onMouseLeave={() => onMouseLeave(null)}
     >
-      <motion.div
-        initial={{ opacity: 0, x: index % 2 === 0 ? 50 : -50 }}
-        animate={projectInView ? { opacity: 1, x: 0 } : {}}
-        transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+      <div
         className={`absolute ${
           index % 2 === 0 ? "right-0" : "-left-0"
         } top-0 select-none pointer-events-none hidden md:block`}
@@ -51,32 +37,22 @@ function ProjectItem({ project, index, onMouseEnter, onMouseLeave, isFocused }: 
         <span className="text-[10rem] font-light text-blue-600">
           {(index + 1).toString().padStart(2, "0")}
         </span>
-      </motion.div>
+      </div>
 
       <div
         className={`grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative`}
       >
-        <motion.div
-          initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-          animate={projectInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+        <div
           className={`md:col-span-7 ${
             index % 2 === 0 ? "md:col-start-1" : "md:col-start-6"
           }`}
         >
           <div className="relative">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={projectInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{
-                duration: 0.6,
-                delay: 0.5,
-                ease: "easeOut",
-              }}
+            <div
               className={`absolute ${
                 index % 2 === 0 ? "right-8" : "left-8"
               } -top-8 w-1/2 h-1/2 border-2 border-blue-500/20 -z-10`}
-            ></motion.div>
+            ></div>
 
             <div className="relative overflow-hidden aspect-[16/10] cursor-pointer">
               <Image
@@ -99,12 +75,9 @@ function ProjectItem({ project, index, onMouseEnter, onMouseLeave, isFocused }: 
               </div>
             </div>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, x: index % 2 === 0 ? 30 : -30 }}
-          animate={projectInView ? { opacity: 1, x: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+        <div
           className={`md:col-span-5 ${
             index % 2 === 0
               ? "md:col-start-7 md:-ml-12"
@@ -112,14 +85,7 @@ function ProjectItem({ project, index, onMouseEnter, onMouseLeave, isFocused }: 
           } bg-white p-8 relative z-10 shadow-sm`}
         >
           <div className="space-y-5">
-            <motion.h3
-              initial={{ opacity: 0, y: 10 }}
-              animate={projectInView ? { opacity: 1, y: 0 } : {}}
-              transition={{
-                duration: 0.5,
-                delay: 0.7,
-                ease: "easeOut",
-              }}
+            <h3
               className="text-2xl font-medium text-gray-800 relative inline-block"
             >
               {project.title}
@@ -128,16 +94,9 @@ function ProjectItem({ project, index, onMouseEnter, onMouseLeave, isFocused }: 
                   isFocused ? "scale-x-100" : "scale-x-0"
                 }`}
               ></span>
-            </motion.h3>
+            </h3>
 
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={projectInView ? { opacity: 1, y: 0 } : {}}
-              transition={{
-                duration: 0.5,
-                delay: 0.8,
-                ease: "easeOut",
-              }}
+            <div
               className="flex flex-wrap gap-2"
             >
               {project.tags.map((tag, idx) => (
@@ -148,25 +107,15 @@ function ProjectItem({ project, index, onMouseEnter, onMouseLeave, isFocused }: 
                   {tag}
                 </span>
               ))}
-            </motion.div>
+            </div>
 
-            <motion.p
-              initial={{ opacity: 0, y: 10 }}
-              animate={projectInView ? { opacity: 1, y: 0 } : {}}
-              transition={{
-                duration: 0.5,
-                delay: 0.9,
-                ease: "easeOut",
-              }}
+            <p
               className="text-gray-600 text-sm leading-relaxed"
             >
               {project.description}
-            </motion.p>
+            </p>
 
-            <motion.a
-              initial={{ opacity: 0, y: 10 }}
-              animate={projectInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: 1, ease: "easeOut" }}
+            <a
               href={project.website}
               target="_blank"
               rel="noopener noreferrer"
@@ -189,26 +138,16 @@ function ProjectItem({ project, index, onMouseEnter, onMouseLeave, isFocused }: 
               >
                 <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
-            </motion.a>
+            </a>
           </div>
-        </motion.div>
+        </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
 function PortfolioContent() {
   const [focusedProject, setFocusedProject] = useState<number | null>(null);
-
-  const [headerRef, headerInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
-  });
-
-  const [projectsRef, projectsInView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
 
   const projects = [
     {
@@ -233,54 +172,22 @@ function PortfolioContent() {
 
   return (
     <div className="py-20">
-      <motion.div
-        ref={headerRef}
-        initial={{ opacity: 0 }}
-        animate={headerInView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="mb-16 relative"
-      >
-        <motion.div
-          initial={{ height: 0 }}
-          animate={headerInView ? { height: "6rem" } : {}}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="absolute -left-4 top-0 w-1 h-24 bg-blue-500"
-        ></motion.div>
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          animate={headerInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-sm uppercase tracking-wider text-gray-500 mb-2"
-        >
+      <div className="mb-16 relative">
+        <div className="absolute -left-4 top-0 w-1 h-24 bg-blue-500"></div>
+        <h2 className="text-sm uppercase tracking-wider text-gray-500 mb-2">
           Portfolio
-        </motion.h2>
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={headerInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
-          className="text-4xl md:text-5xl font-serif mb-6"
-        >
+        </h2>
+        <h1 className="text-4xl md:text-5xl font-serif mb-6">
           <span className="text-blue-600">Featured</span> Projects
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={headerInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-          className="text-gray-700 max-w-2xl"
-        >
+        </h1>
+        <p className="text-gray-700 max-w-2xl">
           Digital solutions that have transformed businesses and elevated their
           online presence, focusing on exceptional user experience and strategic
           outcomes.
-        </motion.p>
-      </motion.div>
+        </p>
+      </div>
 
-      <motion.div
-        ref={projectsRef}
-        initial={{ opacity: 0 }}
-        animate={projectsInView ? { opacity: 1 } : {}}
-        transition={{ duration: 0.4, ease: "easeOut" }}
-        className="space-y-32"
-      >
+      <div className="space-y-32">
         {projects.map((project, index) => (
           <ProjectItem
             key={project.id}
@@ -291,7 +198,7 @@ function PortfolioContent() {
             isFocused={focusedProject === project.id}
           />
         ))}
-      </motion.div>
+      </div>
     </div>
   );
 }
