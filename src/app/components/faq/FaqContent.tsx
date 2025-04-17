@@ -13,7 +13,7 @@ function FaqContent() {
     {
       question: "How does your design and development process work?",
       answer:
-        "My process begins with understanding your business goals, target audience, and specific requirements. I then create wireframes and design mockups for your approval. Once the design is finalized, I move to development, building your website with clean, efficient code. Throughout the process, you&apos;ll receive regular updates and opportunities for feedback. After thorough testing, we launch your website and I provide training on how to manage it. The entire process typically takes 4-8 weeks depending on project complexity.",
+        "My process begins with understanding your business goals, target audience, and specific requirements. I then create wireframes and design mockups for your approval. Once the design is finalized, I move to development, building your website with clean, efficient code. Throughout the process, you will receive regular updates and opportunities for feedback. After thorough testing, we launch your website and I provide training on how to manage it. The entire process typically takes 4-8 weeks depending on project complexity.",
     },
     {
       question: "What makes your websites different from others?",
