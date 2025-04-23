@@ -137,7 +137,7 @@ function HeroContent() {
       </Container>
 
       <div
-        className="w-full flex flex-col sm:flex-row justify-between items-center py-6 px-4 sm:px-8 md:px-12 z-10  gap-4"
+        className="w-full flex flex-col sm:flex-row justify-between items-center py-6 px-4 sm:px-8 md:px-12 z-10 lg:border-t-[1px] lg:border-slate-200 gap-4"
       >
         <div className="flex flex-wrap justify-center gap-4 sm:gap-8">
           <Link
