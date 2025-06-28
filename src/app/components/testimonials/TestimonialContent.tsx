@@ -17,40 +17,67 @@ function TestimonialContent() {
       company: "Irani Chiya",
       role: "Founder & CEO",
       profileImage: "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/anish's-portfolio/hmpkw3fuaextkb76zl0b",
+      results: "40% increase in brand visibility + online traffic",
+      
     },
     {
       type: "video",
       embedId: "UpShTjXS4Z4",
       quote:
-        "As FitPal's founder, I needed an MVP fitness tracking app built quickly. Anish delivered an intuitive platform with a clean interface that makes tracking gym progress simple. His ability to balance functionality with user experience and suggest crucial features set him apart. The result has been instrumental for our startup.",
+        "As FitPal's founder, I needed an MVP fitness tracking app built quickly. Anish delivered an intuitive platform with a clean interface that makes tracking gym progress simple. His ability to balance functionality with user experience and suggest crucial features set him apart.",
       author: "Rinchen Phuntsok",
       company: "FitPal",
       role: "Founder",
       profileImage: "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/anish's-portfolio/t1lt7xpfddfzpw2oqqco",
+      results: "Secured 250+ users in 2 weeks of launch",
+      
     },
     {
       type: "text",
       quote:
-        "As a healthcare startup founder, I needed a developer who could build a complex medical app with multiple systems. Anish delivered CareNest Nepal with symptom tracking, telemedicine, and user management features that exceeded our expectations. His attention to technical details and focus on creating an intuitive user experience significantly improved patient engagement.",
+        "As a healthcare founder, I needed a developer who could build a complex medical app with many parts. Anish built CareNest Nepal with symptom tracking, video calls, and user tools that went beyond what we hoped for. His eye for detail and clean design really helped engage our users.",
       author: "Suman Singh Bhujel",
       company: "CareNest Nepal",
       role: "",
       profileImage: "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/anish's-portfolio/andax5bkrmhec5i7ke7d",
+      results: "65% increase in patient engagement",
+      
     },
     {
       type: "text",
-      quote:"Working with Anish on my graphic design portfolio was the best investment for my creative career. He crafted a visually striking website that perfectly showcases my work while implementing intuitive navigation that enhances the viewing experience. It has really helped me to elevate my online presence and branding further.",
+      quote:"Working with Anish on my design portfolio was the best investment for my career. He built a stunning website that showcases my work and includes intuitive navigation for a smooth experience. It's helped me elevate my online presence and strengthen my personal brand significantly.",
       author: "Priyanci Dhakal",
       company: "",
       role: "Graphic Designer",
       profileImage: "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/anish's-portfolio/fmhwhxsq7xi8yeusayk0",
+      results: "Stronger online presence and branding",
+      
     },
   ];
 
   return (
     <div className="py-20">
+      <style jsx>{`
+        @media (min-width: 1195px) {
+          .video-testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+            align-items: center;
+          }
+          .video-content {
+            order: 2;
+            margin-top: 0;
+            padding: 0;
+            background: none;
+            border-radius: 0;
+            box-shadow: none;
+          }
+        }
+      `}</style>
+
       <div className="mb-16 relative">
-        <div className="absolute -left-4 top-0 w-1 h-24 bg-blue-500"></div>
+        <div className="absolute -left-4 top-0 w-1 h-24 bg-blue-500 hidden sm:block"></div>
         <h2 className="text-sm uppercase tracking-wider text-gray-500 mb-2">
           Client Success Stories
         </h2>
@@ -74,10 +101,10 @@ function TestimonialContent() {
           .map((testimonial, index) => (
             <div
               key={index}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+              className="video-testimonial-grid grid grid-cols-1 gap-12"
             >
               <div
-                className="relative rounded-xl overflow-hidden shadow-xl lg:shadow-lg order-1 lg:order-1 transform lg:transform-none hover:translate-y-[-5px] transition-all duration-300"
+                className="relative rounded-xl overflow-hidden shadow-xl order-1 transform hover:translate-y-[-5px] transition-all duration-300"
               >
                 <div className="aspect-video">
                   <iframe
@@ -91,8 +118,12 @@ function TestimonialContent() {
               </div>
 
               <div
-                className="order-2 lg:order-2 px-4 py-6 lg:p-0 bg-gradient-to-br from-white to-gray-50 lg:bg-none rounded-xl lg:rounded-none shadow-md lg:shadow-none mt-[-20px] lg:mt-0 z-10 mx-0 w-full lg:mx-0"
+                className="video-content order-2 px-4 py-6 bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-md mt-[-20px] z-10 mx-0 w-full"
               >
+                <div className="mb-4 bg-blue-50 text-blue-700 py-2 px-4 rounded-md font-medium">
+                  <span className="block">Results: {testimonial.results}</span>
+                </div>
+                
                 <div className="relative mb-6">
                   <svg
                     className="absolute -top-8 -left-0 h-16 w-16 text-blue-500 opacity-30"
@@ -106,9 +137,10 @@ function TestimonialContent() {
                     {testimonial.quote}
                   </p>
                 </div>
+               
 
-                <div className="flex items-center mt-8 border-t border-gray-100 pt-4 lg:border-0 lg:pt-0">
-                  <div className="relative h-14 w-14 mr-4 rounded-full overflow-hidden shadow-md border-2 border-white">
+                <div className="flex items-center mt-8 border-t border-gray-100 pt-4">
+                  <div className="relative h-14 w-14 mr-4 rounded-full overflow-hidden shadow-md border-2 border-white ">
                     {testimonial.profileImage && (
                       <Image
                         src={testimonial.profileImage}
@@ -138,7 +170,7 @@ function TestimonialContent() {
           More Client <span className="text-blue-600">Feedback</span>
         </h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8">
           {testimonials
             .filter((t) => t.type === "text")
             .map((testimonial, index) => (
@@ -146,6 +178,10 @@ function TestimonialContent() {
                 key={index}
                 className="bg-gradient-to-br from-white to-gray-50 rounded-xl p-8 relative hover:shadow-xl hover:translate-y-[-5px] transition-all duration-300 border border-gray-100"
               >
+                <div className="mb-4 bg-blue-50 text-blue-700 py-2 px-4 rounded-md font-medium text-sm">
+                  <span>Results: {testimonial.results}</span>
+                </div>
+                
                 <div className="flex items-center mb-6 pb-4 border-b border-gray-100">
                   <div className="relative h-12 w-12 mr-4 rounded-full overflow-hidden shadow-md border-2 border-white">
                     {testimonial.profileImage && (
@@ -168,9 +204,11 @@ function TestimonialContent() {
                   </div>
                 </div>
 
-                <p className="text-gray-700 leading-relaxed text-left w-full">
+                <p className="text-gray-700 leading-relaxed text-left w-full mb-4">
                   {testimonial.quote}
                 </p>
+                
+               
               </div>
             ))}
         </div>

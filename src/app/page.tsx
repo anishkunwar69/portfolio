@@ -4,6 +4,7 @@ import Hero from "./sections/Hero";
 import Portfolio from "./sections/Portfolio";
 import Services from "./sections/Services";
 import Testimonials from "./sections/Testimonials";
+import WhoWeWorkWith from "./sections/WhoWeWorkWith";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
       <Hero />
       <Testimonials />
       <Services />
+      <WhoWeWorkWith />
       <Portfolio />
       <Faq />
       <Footer />

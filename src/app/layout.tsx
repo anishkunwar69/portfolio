@@ -15,8 +15,8 @@ const lato = Lato({
 });
 
 export const metadata: Metadata = {
-  title: "Anish Kunwar - Developer",
-  description: "Anish Kunwar is a software developer with a passion for building innovative and user-friendly applications. With a strong foundation in computer science and software engineering, Anish is dedicated to creating efficient and effective solutions that meet the needs of his clients and users.",
+  title: "Web Development Agency - High-Converting Websites & MVPs",
+  description: "We build high-converting websites and MVPs for founders and businesses. Launch your digital product in 7 days or less and start growing your business online.",
 };
 
 export default function RootLayout({
@@ -30,6 +30,9 @@ export default function RootLayout({
         className={`${montserrat.variable} ${lato.variable} antialiased`}
       >
         {children}
+        
+        {/* Floating CTA Button */}
+        
       </body>
     </html>
   );

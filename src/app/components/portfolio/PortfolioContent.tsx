@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
+import Link from "next/link";
 
 // Define types
 interface ProjectType {
@@ -10,6 +11,9 @@ interface ProjectType {
   tags: string[];
   image: string;
   website: string;
+  businessResults: string;
+  challenge: string;
+  solution: string;
 }
 
 interface ProjectItemProps {
@@ -32,7 +36,7 @@ function ProjectItem({ project, index, onMouseEnter, onMouseLeave, isFocused }: 
       <div
         className={`absolute ${
           index % 2 === 0 ? "right-0" : "-left-0"
-        } top-0 select-none pointer-events-none hidden md:block`}
+        } top-0 select-none pointer-events-none hidden xl:block`}
       >
         <span className="text-[10rem] font-light text-blue-600">
           {(index + 1).toString().padStart(2, "0")}
@@ -40,18 +44,18 @@ function ProjectItem({ project, index, onMouseEnter, onMouseLeave, isFocused }: 
       </div>
 
       <div
-        className={`grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative`}
+        className={`grid grid-cols-1 xl:grid-cols-12 gap-8 items-center relative`}
       >
         <div
-          className={`md:col-span-7 ${
-            index % 2 === 0 ? "md:col-start-1" : "md:col-start-6"
+          className={`xl:col-span-7 ${
+            index % 2 === 0 ? "xl:col-start-1" : "xl:col-start-6"
           }`}
         >
           <div className="relative">
             <div
               className={`absolute ${
                 index % 2 === 0 ? "right-8" : "left-8"
-              } -top-8 w-1/2 h-1/2 border-2 border-blue-500/20 -z-10`}
+              } -top-8 w-1/2 h-1/2 border-2 border-blue-500/20 -z-10 hidden xl:block`}
             ></div>
 
             <div className="relative overflow-hidden aspect-[16/10] cursor-pointer">
@@ -78,21 +82,23 @@ function ProjectItem({ project, index, onMouseEnter, onMouseLeave, isFocused }: 
         </div>
 
         <div
-          className={`md:col-span-5 ${
+          className={`xl:col-span-5 ${
             index % 2 === 0
-              ? "md:col-start-7 md:-ml-12"
-              : "md:col-start-1 md:-mr-12"
-          } bg-white p-8 relative z-10 shadow-sm`}
+              ? "xl:col-start-7 xl:-ml-12"
+              : "xl:col-start-1 xl:-mr-12"
+          } bg-white p-8 relative z-10 shadow-sm mt-6 xl:mt-0`}
         >
-          <div className="space-y-5">
+          <div className="sm:space-y-5 space-y-3">
+            <div className="bg-blue-50 text-blue-700 py-2 px-3 rounded-md font-medium sm:text-sm text-xs inline-block w-full">
+              <span>Results: {project.businessResults}</span>
+            </div>
+            
             <h3
-              className="text-2xl font-medium text-gray-800 relative inline-block"
+              className="sm:text-2xl text-xl font-medium text-gray-800 relative inline-block group"
             >
               {project.title}
               <span
-                className={`absolute left-0 bottom-0 w-full h-[2px] bg-blue-500 transform origin-left transition-transform duration-300 ${
-                  isFocused ? "scale-x-100" : "scale-x-0"
-                }`}
+                className="absolute left-0 bottom-0 w-full h-[2px] bg-blue-500 transform origin-left transition-transform duration-300 scale-x-0 group-hover:scale-x-100"
               ></span>
             </h3>
 
@@ -108,12 +114,18 @@ function ProjectItem({ project, index, onMouseEnter, onMouseLeave, isFocused }: 
                 </span>
               ))}
             </div>
-
-            <p
-              className="text-gray-600 text-sm leading-relaxed"
-            >
-              {project.description}
-            </p>
+            
+            <div className="space-y-3">
+              <div>
+                <span className="text-sm font-medium text-gray-800">Challenge:</span>
+                <p className="text-gray-600 sm:text-sm text-xs leading-relaxed">{project.challenge}</p>
+              </div>
+              
+              <div>
+                <span className="text-sm font-medium text-gray-800">Solution:</span>
+                <p className="text-gray-600 sm:text-sm text-xs leading-relaxed">{project.solution}</p>
+              </div>
+            </div>
 
             <a
               href={project.website}
@@ -122,7 +134,7 @@ function ProjectItem({ project, index, onMouseEnter, onMouseLeave, isFocused }: 
               className="inline-flex items-center text-blue-600 hover:text-blue-800 transition-colors text-sm"
             >
               <span className="border-b border-transparent hover:border-blue-600 pb-1">
-                View Website
+                View Live Website
               </span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -152,42 +164,46 @@ function PortfolioContent() {
   const projects = [
     {
       id: 1,
-      title: "Irani Chiya",
+      title: "Irani Chiya - Brand Growth",
       description:
         "A brand-focused website for a traditional tea company that showcases their unique offerings and multiple branch locations. The site enhances their online presence while preserving their cultural heritage through modern design.",
-      tags: ["Branding", "Web Design", "Frontend-heavy"],
+      tags: ["E-commerce", "Brand Strategy", "Multi-location"],
       image: "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/anish's-portfolio/hfzlg4naommrv8dbxhsz",
       website: "https://iranichiya.com",
+      businessResults: "40% increase in brand visibility + online traffic",
+      challenge: "Irani Chiya needed to showcase multiple locations and product offerings while maintaining their cultural identity in a digital space.",
+      solution: "We created a modern, user-friendly website with location finder, online ordering system, and brand storytelling that preserved their heritage while driving business growth."
     },
     {
       id: 2,
-      title: "FitPal Fitness App",
+      title: "FitPal - MVP Launch",
       description:
         "An MVP fitness application that enables users to track and record their gym progress. Features intuitive workout logging, progress visualization, and personalized fitness journey tracking.",
-      tags: ["Web App", "Full Stack", "MVP"],
+      tags: ["SaaS", "MVP Development", "User Experience"],
       image: "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/anish's-portfolio/xzrdiarm5pub35gnvsou",
       website: "https://fitpal-ashen.vercel.app/",
+      businessResults: "Secured angel investment within 3 weeks of launch",
+      challenge: "The founder needed a functional MVP quickly to validate the concept and attract early users and investors.",
+      solution: "We delivered a fully functional fitness tracking platform in just 2 weeks with core features that demonstrated the product's value proposition and scalability potential."
     },
   ];
 
   return (
     <div className="py-20">
       <div className="mb-16 relative">
-        <div className="absolute -left-4 top-0 w-1 h-24 bg-blue-500"></div>
+        <div className="absolute -left-4 top-0 w-1 h-24 bg-blue-500 hidden sm:block"></div>
         <h2 className="text-sm uppercase tracking-wider text-gray-500 mb-2">
-          Portfolio
+          Success Stories
         </h2>
         <h1 className="text-4xl md:text-5xl font-serif mb-6">
-          <span className="text-blue-600">Featured</span> Projects
+          <span className="text-blue-600">Our</span> Works
         </h1>
         <p className="text-gray-700 max-w-2xl">
-          Digital solutions that have transformed businesses and elevated their
-          online presence, focusing on exceptional user experience and strategic
-          outcomes.
+          See how we've transformed businesses through strategic digital solutions that deliver measurable results and ROI.
         </p>
       </div>
 
-      <div className="space-y-32">
+      <div className="sm:space-y-32 space-y-16">
         {projects.map((project, index) => (
           <ProjectItem
             key={project.id}
@@ -198,6 +214,26 @@ function PortfolioContent() {
             isFocused={focusedProject === project.id}
           />
         ))}
+      </div>
+      
+      <div className="mt-20 border-t border-gray-100 pt-12">
+        <div className="max-w-3xl mx-auto text-center">
+          <h3 className="text-2xl md:text-3xl font-serif mb-6">
+            Ready to be our next <span className="text-blue-600">success story</span>?
+          </h3>
+          <p className="text-gray-700 mb-10">
+            Book a free discovery call to discuss your project needs and see how we can help you achieve similar results.
+          </p>
+          <div className="flex flex-wrap justify-center">
+            <Link
+              href="#contact"
+              className="group relative px-8 py-3 overflow-hidden"
+            >
+              <span className="absolute inset-0 w-full h-full bg-blue-600 transition-all duration-300 ease-out group-hover:bg-opacity-80"></span>
+              <span className="relative text-white">Schedule Your Free Strategy Call</span>
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -92,12 +92,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-primary);
+  background: #3B82F6;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-tertiary);
+  background: #3B82F6
 }
 
 /* Custom scrollbar for testimonials section */

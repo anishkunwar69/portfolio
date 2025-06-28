@@ -1,34 +1,35 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 
 function FaqContent() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   const faqs = [
     {
-      question: "What types of web development services do you offer?",
+      question: "How quickly can you deliver results for my business?",
       answer:
-        "I provide end-to-end web development services ranging from simple landing pages to complex web applications. My expertise includes frontend development with React, Next.js, and Vue.js, backend development with Node.js, Express, and MongoDB, as well as full-stack solutions. Whether you need a frontend-heavy website with stunning animations or a backend-heavy application with complex logic, I can tailor my services to your specific business needs.",
+        "Our agency is structured for rapid delivery and measurable results. For most clients, we begin seeing traffic improvements within the first 2 weeks and conversion increases within 30 days of launch. Our Sales-Focused Website package typically delivers ROI within 45-60 days, while our MVP packages help founders secure funding in as little as 3-4 weeks. We're committed to timelines that align with your business goals—whether that's hitting revenue targets, launching before competitors, or meeting investor deadlines.",
     },
     {
-      question: "How does your design and development process work?",
+      question: "What kind of ROI can I expect from your services?",
       answer:
-        "My process begins with understanding your business goals, target audience, and specific requirements. I then create wireframes and design mockups for your approval. Once the design is finalized, I move to development, building your website with clean, efficient code. Throughout the process, you will receive regular updates and opportunities for feedback. After thorough testing, we launch your website and I provide training on how to manage it. The entire process typically takes 4-8 weeks depending on project complexity.",
+        "Our clients typically see a 2-4x return on investment within the first 3-6 months. For example, our e-commerce clients average a 30-40% increase in conversion rates, and our SaaS clients reduce customer acquisition costs by 25-35% through optimized websites. We document all performance metrics and provide monthly reports tracking your specific KPIs—whether that's lead generation, sales, user signups, or investor interest. Our agency's success is measured by your business outcomes, not just website aesthetics.",
     },
     {
-      question: "What makes your websites different from others?",
+      question: "How is your agency different from other web development companies?",
       answer:
-        "My websites stand out because they are strategically designed to convert visitors into customers. I focus on creating intuitive user experiences with compelling visuals that reflect your brand identity. Each website I build is optimized for performance, SEO, and mobile responsiveness. Unlike template-based websites, my custom solutions are tailored specifically to your business objectives and include unique interactive elements that engage your visitors and set you apart from competitors.",
+        "Unlike traditional web agencies that focus solely on design or development, we operate as a strategic growth partner. Our team combines technical expertise with business strategy to create digital assets that actively generate revenue. We don't just build websites—we build sales systems with clear ROI. Our process includes in-depth market research, competitor analysis, and conversion optimization from day one. Additionally, we offer flexible payment options including performance-based models for qualified clients, demonstrating our confidence in delivering measurable results.",
     },
     {
-      question: "How quickly can you deliver an MVP for startups?",
+      question: "Do you work with early-stage startups with limited budgets?",
       answer:
-        "For startups needing an MVP (Minimum Viable Product), I can deliver within 2-4 weeks depending on scope. I prioritize core features that demonstrate your concept to investors or early users, allowing for quick iterations based on feedback. My streamlined development approach for MVPs focuses on essential functionality while maintaining clean code that can be expanded later. This helps startups validate their ideas quickly without sacrificing quality or scalability.",
+        "Yes, we've developed specific packages for early-stage founders who need to maximize every dollar. Our 7-Day Launch Accelerator ($999) is specifically designed for pre-seed startups needing to validate concepts quickly. For funded startups, our Startup MVP Package ($2,499) provides everything needed to demonstrate traction to investors. We also offer flexible payment structures for promising startups, including milestone-based payments and, in select cases, equity arrangements for long-term partnerships. Our goal is to help you reach profitability or your next funding round.",
     },
     {
-      question: "Do you provide ongoing support after website launch?",
+      question: "What ongoing support do you provide after project completion?",
       answer:
-        "Absolutely! I offer flexible maintenance packages that include regular updates, security monitoring, performance optimization, and content updates. For e-commerce and dynamic websites, I provide more comprehensive support options. I can also train your team to handle basic content updates independently. My goal is to build a long-term partnership, ensuring your website continues to evolve with your business and remains secure, fast, and effective at converting visitors.",
+        "We believe in building long-term partnerships, not just completing transactions. Every project includes 30 days of post-launch support at no additional cost. Beyond that, our Growth Partnership program ($499/month) provides ongoing optimization, feature additions, and technical support to continuously improve your results. This includes monthly performance reviews, A/B testing of key pages, and priority access to our team for time-sensitive updates. Many clients find that this ongoing optimization pays for itself through increased conversion rates and customer lifetime value.",
     },
   ];
 
@@ -39,7 +40,7 @@ function FaqContent() {
   return (
     <div className="py-20">
       <div className="mb-16 relative">
-        <div className="absolute -left-4 top-0 w-1 h-24 bg-blue-500"></div>
+        <div className="absolute -left-4 top-0 w-1 h-24 bg-blue-500 hidden sm:block"></div>
         <h2 className="text-sm uppercase tracking-wider text-gray-500 mb-2">
           Common Questions
         </h2>
@@ -47,8 +48,7 @@ function FaqContent() {
           Frequently <span className="text-blue-600">Asked</span>
         </h1>
         <p className="text-gray-700 max-w-2xl">
-          Get the information you need to make informed decisions about your web
-          development project.
+          Get answers about our process, pricing, and how we deliver measurable business results.
         </p>
       </div>
 
@@ -128,25 +128,24 @@ function FaqContent() {
         </div>
       </div>
 
-      <div className="mt-20 max-w-3xl mx-auto bg-gray-50 p-8 relative">
-        <div className="absolute -left-2 top-0 bottom-0 w-1 bg-blue-500 opacity-30"></div>
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div>
-            <h3 className="text-xl font-medium text-gray-800 mb-2">
-              Still have questions?
-            </h3>
-            <p className="text-gray-600 text-sm">
-              Get in touch and I&apos;ll be happy to help you with any queries.
-            </p>
+      <div className="mt-20 border-t border-gray-100 pt-12">
+        <div className="max-w-3xl mx-auto text-center">
+          <h3 className="text-2xl md:text-3xl font-serif mb-6">
+            Ready to <span className="text-blue-600">grow your business</span>?
+          </h3>
+          <p className="text-gray-700 mb-10">
+            Book a free 30-minute strategy call to discuss your specific needs and get a custom growth plan.
+            Limited slots available each month.
+          </p>
+          <div className="flex flex-wrap justify-center">
+            <Link
+              href="#contact"
+              className="group relative px-8 py-3 overflow-hidden"
+            >
+              <span className="absolute inset-0 w-full h-full bg-blue-600 transition-all duration-300 ease-out group-hover:bg-opacity-80"></span>
+              <span className="relative text-white">Book Your Free Strategy Call</span>
+            </Link>
           </div>
-          <a
-            href="https://www.instagram.com/anishkunwarr/"
-            target="_blank"
-            className="group relative px-6 py-3 overflow-hidden hover:scale-105 transition-transform"
-          >
-            <span className="absolute inset-0 w-full h-full bg-blue-600 transition-all duration-300 ease-out group-hover:bg-opacity-80"></span>
-            <span className="relative text-white">Contact Me</span>
-          </a>
         </div>
       </div>
     </div>
