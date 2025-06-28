@@ -159,7 +159,7 @@ function HeroContent() {
               ></div>
               <div className="absolute inset-0 shadow-2xl rounded-lg overflow-hidden">
                 <Image
-                  src="https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/anish's-portfolio/ojfbnh6rcoauwn2rcdk5"
+                  src="https://res.cloudinary.com/dmq5tx0bd/image/upload/v1751122048/ChatGPT_Image_Jun_28_2025_08_31_19_PM_b6ghjp.png"
                   alt="Anish"
                   fill
                   className="object-cover transition-transform duration-700 hover:scale-105"
