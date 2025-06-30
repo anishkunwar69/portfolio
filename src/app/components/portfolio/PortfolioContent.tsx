@@ -182,7 +182,7 @@ function PortfolioContent() {
       tags: ["SaaS", "MVP Development", "User Experience"],
       image: "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/anish's-portfolio/xzrdiarm5pub35gnvsou",
       website: "https://fitpal-ashen.vercel.app/",
-      businessResults: "Secured angel investment within 3 weeks of launch",
+      businessResults: "Secured 250+ users within 2 weeks of launch",
       challenge: "The founder needed a functional MVP quickly to validate the concept and attract early users and investors.",
       solution: "We delivered a fully functional fitness tracking platform in just 2 weeks with core features that demonstrated the product's value proposition and scalability potential."
     },
