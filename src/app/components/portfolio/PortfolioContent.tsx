@@ -176,15 +176,15 @@ function PortfolioContent() {
     },
     {
       id: 2,
-      title: "FitPal - MVP Launch",
+      title: "FamBook",
       description:
         "An MVP fitness application that enables users to track and record their gym progress. Features intuitive workout logging, progress visualization, and personalized fitness journey tracking.",
-      tags: ["SaaS", "MVP Development", "User Experience"],
-      image: "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/anish's-portfolio/xzrdiarm5pub35gnvsou",
-      website: "https://fitpal-ashen.vercel.app/",
-      businessResults: "Secured 250+ users within 2 weeks of launch",
-      challenge: "The founder needed a functional MVP quickly to validate the concept and attract early users and investors.",
-      solution: "We delivered a fully functional fitness tracking platform in just 2 weeks with core features that demonstrated the product's value proposition and scalability potential."
+      tags: ["SaaS", "Full Stack App", "User Experience"],
+      image: "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1753503608/anish2_2x_eywzql.png",
+      website: "https://www.fambook.pro/",
+      businessResults: "Helped 40+ families to secure their memories",
+      challenge: "Families are spread across the world, and staying privately connected is hard. No platform existed just for family bonding and preserving legacy.",
+      solution: "We built Fambook, a private social app for families to share posts, photos, events, and family trees—preserving memories and staying connected across any distance."
     },
   ];
 
