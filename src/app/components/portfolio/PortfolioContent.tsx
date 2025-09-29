@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
 import Link from "next/link";
+import { useState } from "react";
 
 // Define types
 interface ProjectType {
@@ -25,7 +25,13 @@ interface ProjectItemProps {
 }
 
 // Separate component for project items to safely use hooks
-function ProjectItem({ project, index, onMouseEnter, onMouseLeave, isFocused }: ProjectItemProps) {
+function ProjectItem({
+  project,
+  index,
+  onMouseEnter,
+  onMouseLeave,
+  isFocused,
+}: ProjectItemProps) {
   return (
     <div
       key={project.id}
@@ -92,19 +98,13 @@ function ProjectItem({ project, index, onMouseEnter, onMouseLeave, isFocused }: 
             <div className="bg-blue-50 text-blue-700 py-2 px-3 rounded-md font-medium sm:text-sm text-xs inline-block w-full">
               <span>Results: {project.businessResults}</span>
             </div>
-            
-            <h3
-              className="sm:text-2xl text-xl font-medium text-gray-800 relative inline-block group"
-            >
+
+            <h3 className="sm:text-2xl text-xl font-medium text-gray-800 relative inline-block group">
               {project.title}
-              <span
-                className="absolute left-0 bottom-0 w-full h-[2px] bg-blue-500 transform origin-left transition-transform duration-300 scale-x-0 group-hover:scale-x-100"
-              ></span>
+              <span className="absolute left-0 bottom-0 w-full h-[2px] bg-blue-500 transform origin-left transition-transform duration-300 scale-x-0 group-hover:scale-x-100"></span>
             </h3>
 
-            <div
-              className="flex flex-wrap gap-2"
-            >
+            <div className="flex flex-wrap gap-2">
               {project.tags.map((tag, idx) => (
                 <span
                   key={idx}
@@ -114,16 +114,24 @@ function ProjectItem({ project, index, onMouseEnter, onMouseLeave, isFocused }: 
                 </span>
               ))}
             </div>
-            
+
             <div className="space-y-3">
               <div>
-                <span className="text-sm font-medium text-gray-800">Challenge:</span>
-                <p className="text-gray-600 sm:text-sm text-xs leading-relaxed">{project.challenge}</p>
+                <span className="text-sm font-medium text-gray-800">
+                  Challenge:
+                </span>
+                <p className="text-gray-600 sm:text-sm text-xs leading-relaxed">
+                  {project.challenge}
+                </p>
               </div>
-              
+
               <div>
-                <span className="text-sm font-medium text-gray-800">Solution:</span>
-                <p className="text-gray-600 sm:text-sm text-xs leading-relaxed">{project.solution}</p>
+                <span className="text-sm font-medium text-gray-800">
+                  Solution:
+                </span>
+                <p className="text-gray-600 sm:text-sm text-xs leading-relaxed">
+                  {project.solution}
+                </p>
               </div>
             </div>
 
@@ -168,11 +176,14 @@ function PortfolioContent() {
       description:
         "A brand-focused website for a traditional tea company that showcases their unique offerings and multiple branch locations. The site enhances their online presence while preserving their cultural heritage through modern design.",
       tags: ["E-commerce", "Brand Strategy", "Multi-location"],
-      image: "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/anish's-portfolio/hfzlg4naommrv8dbxhsz",
+      image:
+        "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/anish's-portfolio/hfzlg4naommrv8dbxhsz",
       website: "https://iranichiya.com",
       businessResults: "40% increase in brand visibility + online traffic",
-      challenge: "Irani Chiya needed to showcase multiple locations and product offerings while maintaining their cultural identity in a digital space.",
-      solution: "We created a modern, user-friendly website with location finder, online ordering system, and brand storytelling that preserved their heritage while driving business growth."
+      challenge:
+        "Irani Chiya needed to showcase multiple locations and product offerings while maintaining their cultural identity in a digital space.",
+      solution:
+        "We created a modern, user-friendly website with location finder, online ordering system, and brand storytelling that preserved their heritage while driving business growth.",
     },
     {
       id: 2,
@@ -180,11 +191,14 @@ function PortfolioContent() {
       description:
         "An MVP fitness application that enables users to track and record their gym progress. Features intuitive workout logging, progress visualization, and personalized fitness journey tracking.",
       tags: ["SaaS", "Full Stack App", "User Experience"],
-      image: "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1753503608/anish2_2x_eywzql.png",
+      image:
+        "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1753503608/anish2_2x_eywzql.png",
       website: "https://www.fambook.pro/",
       businessResults: "Helped 40+ families to secure their memories",
-      challenge: "Families are spread across the world, and staying privately connected is hard. No platform existed just for family bonding and preserving legacy.",
-      solution: "We built Fambook, a private social app for families to share posts, photos, events, and family trees—preserving memories and staying connected across any distance."
+      challenge:
+        "Families are spread across the world, and staying privately connected is hard. No platform existed just for family bonding and preserving legacy.",
+      solution:
+        "We built Fambook, a private social app for families to share posts, photos, events, and family trees—preserving memories and staying connected across any distance.",
     },
   ];
 
@@ -199,7 +213,8 @@ function PortfolioContent() {
           <span className="text-blue-600">Our</span> Works
         </h1>
         <p className="text-gray-700 max-w-2xl">
-          See how we've transformed businesses through strategic digital solutions that deliver measurable results and ROI.
+          See how we've transformed businesses through strategic digital
+          solutions that deliver measurable results and ROI.
         </p>
       </div>
 
@@ -215,22 +230,26 @@ function PortfolioContent() {
           />
         ))}
       </div>
-      
+
       <div className="mt-20 border-t border-gray-100 pt-12">
         <div className="max-w-3xl mx-auto text-center">
           <h3 className="text-2xl md:text-3xl font-serif mb-6">
-            Ready to be our next <span className="text-blue-600">success story</span>?
+            Ready to be our next{" "}
+            <span className="text-blue-600">success story</span>?
           </h3>
           <p className="text-gray-700 mb-10">
-            Book a free discovery call to discuss your project needs and see how we can help you achieve similar results.
+            Book a free discovery call to discuss your project needs and see how
+            we can help you achieve similar results.
           </p>
           <div className="flex flex-wrap justify-center">
             <Link
-              href="#contact"
+              href="https://www.instagram.com/anishkunwar_21/"
               className="group relative px-8 py-3 overflow-hidden"
             >
               <span className="absolute inset-0 w-full h-full bg-blue-600 transition-all duration-300 ease-out group-hover:bg-opacity-80"></span>
-              <span className="relative text-white">Schedule Your Free Strategy Call</span>
+              <span className="relative text-white">
+                Schedule Your Free Strategy Call
+              </span>
             </Link>
           </div>
         </div>

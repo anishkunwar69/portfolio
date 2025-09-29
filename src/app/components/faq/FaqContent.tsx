@@ -1,6 +1,6 @@
 "use client";
-import { useState } from "react";
 import Link from "next/link";
+import { useState } from "react";
 
 function FaqContent() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -17,7 +17,8 @@ function FaqContent() {
         "Our clients typically see a 2-4x return on investment within the first 3-6 months. For example, our e-commerce clients average a 30-40% increase in conversion rates, and our SaaS clients reduce customer acquisition costs by 25-35% through optimized websites. We document all performance metrics and provide monthly reports tracking your specific KPIs—whether that's lead generation, sales, user signups, or investor interest. Our agency's success is measured by your business outcomes, not just website aesthetics.",
     },
     {
-      question: "How is your agency different from other web development companies?",
+      question:
+        "How is your agency different from other web development companies?",
       answer:
         "Unlike traditional web agencies that focus solely on design or development, we operate as a strategic growth partner. Our team combines technical expertise with business strategy to create digital assets that actively generate revenue. We don't just build websites—we build sales systems with clear ROI. Our process includes in-depth market research, competitor analysis, and conversion optimization from day one. Additionally, we offer flexible payment options including performance-based models for qualified clients, demonstrating our confidence in delivering measurable results.",
     },
@@ -48,7 +49,8 @@ function FaqContent() {
           Frequently <span className="text-blue-600">Asked</span>
         </h1>
         <p className="text-gray-700 max-w-2xl">
-          Get answers about our process, pricing, and how we deliver measurable business results.
+          Get answers about our process, pricing, and how we deliver measurable
+          business results.
         </p>
       </div>
 
@@ -99,14 +101,14 @@ function FaqContent() {
 
               <div
                 className={`overflow-hidden transition-transform duration-300 ease-out ${
-                  activeIndex === index 
-                    ? "opacity-100 transform-none" 
+                  activeIndex === index
+                    ? "opacity-100 transform-none"
                     : "opacity-0 transform translate-y-[-8px]"
                 }`}
                 style={{
-                  height: activeIndex === index ? 'auto' : 0,
-                  transitionProperty: 'opacity, transform, height',
-                  transitionDuration: '300ms, 300ms, 300ms'
+                  height: activeIndex === index ? "auto" : 0,
+                  transitionProperty: "opacity, transform, height",
+                  transitionDuration: "300ms, 300ms, 300ms",
                 }}
               >
                 <div className="px-6 py-4 border-l-2 border-blue-100 ml-6">
@@ -134,16 +136,18 @@ function FaqContent() {
             Ready to <span className="text-blue-600">grow your business</span>?
           </h3>
           <p className="text-gray-700 mb-10">
-            Book a free 30-minute strategy call to discuss your specific needs and get a custom growth plan.
-            Limited slots available each month.
+            Book a free 30-minute strategy call to discuss your specific needs
+            and get a custom growth plan. Limited slots available each month.
           </p>
           <div className="flex flex-wrap justify-center">
             <Link
-              href="#contact"
+              href="https://www.instagram.com/anishkunwar_21/"
               className="group relative px-8 py-3 overflow-hidden"
             >
               <span className="absolute inset-0 w-full h-full bg-blue-600 transition-all duration-300 ease-out group-hover:bg-opacity-80"></span>
-              <span className="relative text-white">Book Your Free Strategy Call</span>
+              <span className="relative text-white">
+                Book Your Free Strategy Call
+              </span>
             </Link>
           </div>
         </div>
