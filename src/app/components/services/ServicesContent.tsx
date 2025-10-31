@@ -124,14 +124,14 @@ function ServicesContent() {
               </h3>
             </div>
             
-            <div className="mb-6 flex items-center justify-between">
+            {/* <div className="mb-6 flex items-center justify-between">
               <span className="text-blue-600 sm:text-lg text-base font-medium">
                 {service.price}
               </span>
               <span className="text-gray-500 sm:text-sm text-xs">
                 Delivery: {service.deliveryTime}
               </span>
-            </div>
+            </div> */}
 
             <p className="text-gray-600 mb-6 sm:text-base text-sm">
               {service.description}
