@@ -131,14 +131,12 @@ function HeroContent() {
 
             <div className="button-group flex flex-wrap justify-center gap-4 md:gap-6 mt-6">
               <Link
-                href="https://www.instagram.com/anishkunwar_21/"
+                href="https://cal.com/anish-kunwar-7lyj6e/quick-consultation"
                 target="_blank"
                 className="group relative sm:px-6 sm:py-3 px-4 py-2 overflow-hidden"
               >
                 <span className="absolute inset-0 w-full h-full bg-blue-600 transition-all duration-300 ease-out group-hover:bg-opacity-80"></span>
-                <span className="relative text-white">
-                  Book a Free Discovery Call
-                </span>
+                <span className="relative text-white">Book A Free Call</span>
               </Link>
 
               <Link

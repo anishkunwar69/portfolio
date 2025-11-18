@@ -243,13 +243,12 @@ function PortfolioContent() {
           </p>
           <div className="flex flex-wrap justify-center">
             <Link
-              href="https://www.instagram.com/anishkunwar_21/"
+              href="https://cal.com/anish-kunwar-7lyj6e/quick-consultation"
+              target="_blank"
               className="group relative px-8 py-3 overflow-hidden"
             >
               <span className="absolute inset-0 w-full h-full bg-blue-600 transition-all duration-300 ease-out group-hover:bg-opacity-80"></span>
-              <span className="relative text-white">
-                Schedule Your Free Strategy Call
-              </span>
+              <span className="relative text-white">Book A Free Call</span>
             </Link>
           </div>
         </div>

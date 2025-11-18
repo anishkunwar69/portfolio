@@ -15,7 +15,7 @@ function ServicesContent() {
       icon: "design",
       badge: "High Conversion",
       price: "Starting at $1,499",
-      deliveryTime: "14 days"
+      deliveryTime: "14 days",
     },
     {
       id: 2,
@@ -26,7 +26,7 @@ function ServicesContent() {
       badge: "Investor-Ready",
       price: "Starting at $2,499",
       deliveryTime: "14 days",
-      popular: true
+      popular: true,
     },
     {
       id: 3,
@@ -36,7 +36,7 @@ function ServicesContent() {
       icon: "shopping",
       badge: "Revenue-Focused",
       price: "Starting at $1,999",
-      deliveryTime: "21 days"
+      deliveryTime: "21 days",
     },
     {
       id: 4,
@@ -46,7 +46,7 @@ function ServicesContent() {
       icon: "rocket",
       badge: "Ultra-Fast",
       price: "Starting at $999",
-      deliveryTime: "7 days"
+      deliveryTime: "7 days",
     },
     {
       id: 5,
@@ -56,7 +56,7 @@ function ServicesContent() {
       icon: "cms",
       badge: "No-Code Updates",
       price: "Starting at $1,699",
-      deliveryTime: "14 days"
+      deliveryTime: "14 days",
     },
     {
       id: 6,
@@ -66,7 +66,7 @@ function ServicesContent() {
       icon: "support",
       badge: "Monthly Support",
       price: "Starting at $499/mo",
-      deliveryTime: "Ongoing"
+      deliveryTime: "Ongoing",
     },
   ];
 
@@ -94,8 +94,8 @@ function ServicesContent() {
           Our <span className="text-blue-600">Packages</span>
         </h1>
         <p className="text-gray-700 max-w-2xl">
-          Ready-to-launch solutions designed to help founders and businesses grow online
-          with predictable timelines and transparent pricing.
+          Ready-to-launch solutions designed to help founders and businesses
+          grow online with predictable timelines and transparent pricing.
         </p>
       </div>
 
@@ -123,7 +123,7 @@ function ServicesContent() {
                 {service.title}
               </h3>
             </div>
-            
+
             {/* <div className="mb-6 flex items-center justify-between">
               <span className="text-blue-600 sm:text-lg text-base font-medium">
                 {service.price}
@@ -139,9 +139,11 @@ function ServicesContent() {
 
             <div className="flex justify-between items-center">
               <div className="inline-flex items-center text-blue-600">
-                <span className="text-xs uppercase tracking-wide font-medium py-1 px-2 bg-blue-50 rounded">{service.badge}</span>
+                <span className="text-xs uppercase tracking-wide font-medium py-1 px-2 bg-blue-50 rounded">
+                  {service.badge}
+                </span>
               </div>
-              
+
               <Link
                 href="#contact"
                 className="sm:text-sm text-xs text-blue-600 hover:text-blue-800 font-medium"
@@ -156,11 +158,12 @@ function ServicesContent() {
       <div className="mt-20 border-t border-gray-100 pt-12">
         <div className="max-w-3xl mx-auto text-center">
           <h3 className="text-2xl md:text-3xl font-serif mb-6">
-            Ready to <span className="text-blue-600">grow your business</span> online?
+            Ready to <span className="text-blue-600">grow your business</span>{" "}
+            online?
           </h3>
           <p className="text-gray-700 mb-10">
-            Book a free 30-minute discovery call to discuss your project needs and get a custom quote.
-            Limited slots available each month.
+            Book a free 30-minute discovery call to discuss your project needs
+            and get a custom quote. Limited slots available each month.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
             <Link
@@ -169,10 +172,8 @@ function ServicesContent() {
               className="group relative px-8 py-3 overflow-hidden"
             >
               <span className="absolute inset-0 w-full h-full bg-blue-600 transition-all duration-300 ease-out group-hover:bg-opacity-80"></span>
-              <span className="relative text-white">Book a Free Strategy Call</span>
+              <span className="relative text-white">Book A Free Call</span>
             </Link>
-
-            
           </div>
         </div>
       </div>
