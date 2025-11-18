@@ -1,8 +1,8 @@
+import { GoogleAnalytics } from "@next/third-parties/google";
 import type { Metadata } from "next";
-import { Montserrat, Lato } from "next/font/google";
+import { Lato, Montserrat } from "next/font/google";
 import "./globals.css";
 
- 
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
@@ -16,7 +16,8 @@ const lato = Lato({
 
 export const metadata: Metadata = {
   title: "Web Development Agency - High-Converting Websites & MVPs",
-  description: "We build high-converting websites and MVPs for founders and businesses. Launch your digital product in 7 days or less and start growing your business online.",
+  description:
+    "We build high-converting websites and MVPs for founders and businesses. Launch your digital product in 7 days or less and start growing your business online.",
 };
 
 export default function RootLayout({
@@ -26,13 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${montserrat.variable} ${lato.variable} antialiased`}
-      >
+      <body className={`${montserrat.variable} ${lato.variable} antialiased`}>
         {children}
-        
-        {/* Floating CTA Button */}
-        
+        <GoogleAnalytics gaId="G-R7F2ZKPPL1" />
       </body>
     </html>
   );
