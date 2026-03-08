@@ -7,7 +7,17 @@ function TestimonialContent() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [activeTestimonial, setActiveTestimonial] = useState(0);
 
-  const testimonials = [
+  const testimonials: Array<{
+    type: string;
+    embedId?: string;
+    quote: string;
+    author: string;
+    company: string;
+    role: string;
+    profileImage: string;
+    results: string;
+    cta?: { text: string; link: string };
+  }> = [
     {
       type: "video",
       embedId: "xPuUAOXxRgA",
@@ -35,23 +45,26 @@ function TestimonialContent() {
     {
       type: "text",
       quote:
-        "As a healthcare founder, I needed a developer who could build a complex medical app with many parts. Anish built CareNest Nepal with symptom tracking, video calls, and user tools that went beyond what we hoped for. His eye for detail and clean design really helped engage our users.",
-      author: "Suman Singh Bhujel",
-      company: "CareNest Nepal",
-      role: "",
-      profileImage: "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/anish's-portfolio/andax5bkrmhec5i7ke7d",
-      results: "65% increase in patient engagement",
+        "As a videographer, I needed someone who could truly understand my creative vision and build a portfolio that reflected both my work and my personality. Anish delivered exactly that — a website that showcased my projects beautifully while capturing who I am as an artist. His ability to translate a vague idea into something tangible and visually compelling made the entire experience exceed my expectations.",
+      author: "Shayuj Pokharel",
+      company: "",
+      role: "Videographer",
+      profileImage: "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1772954702/490342396_1427338601611419_632769221839554508_n_jpoaca.jpg",
+      results: "Stronger online presence and branding",
       
     },
     {
       type: "text",
-      quote:"Working with Anish on my design portfolio was the best investment for my career. He built a stunning website that showcases my work and includes intuitive navigation for a smooth experience. It's helped me elevate my online presence and strengthen my personal brand significantly.",
-      author: "Priyanci Dhakal",
+      quote: "I would love the opportunity to bring your vision to life. Let's collaborate and build something extraordinary together. Your success story could be featured right here—I can't wait to work with you!",
+      author: "Your Name",
       company: "",
-      role: "Graphic Designer",
-      profileImage: "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/anish's-portfolio/fmhwhxsq7xi8yeusayk0",
-      results: "Stronger online presence and branding",
-      
+      role: "Future You",
+      profileImage: "",
+      results: "Your next big milestone",
+      cta: {
+        text: "Start Your Project",
+        link: "#contact"
+      }
     },
   ];
 
@@ -183,8 +196,8 @@ function TestimonialContent() {
                 </div>
                 
                 <div className="flex items-center mb-6 pb-4 border-b border-gray-100">
-                  <div className="relative h-12 w-12 mr-4 rounded-full overflow-hidden shadow-md border-2 border-white">
-                    {testimonial.profileImage && (
+                  <div className="relative h-12 w-12 mr-4 rounded-full overflow-hidden shadow-md border-2 border-white bg-blue-50 flex items-center justify-center">
+                    {testimonial.profileImage ? (
                       <Image
                         src={testimonial.profileImage}
                         alt={`${testimonial.author} profile`}
@@ -192,6 +205,10 @@ function TestimonialContent() {
                         height={48}
                         className="object-cover"
                       />
+                    ) : (
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      </svg>
                     )}
                   </div>
                   <div>
@@ -208,6 +225,19 @@ function TestimonialContent() {
                   {testimonial.quote}
                 </p>
                 
+                {testimonial.cta && (
+                  <div className="mt-6 mb-2">
+                    <a 
+                      href={testimonial.cta.link}
+                      className="inline-flex items-center justify-center px-6 py-2.5 border border-transparent text-sm font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition-all duration-300 shadow-sm hover:shadow-md group"
+                    >
+                      {testimonial.cta.text}
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </a>
+                  </div>
+                )}
                
               </div>
             ))}

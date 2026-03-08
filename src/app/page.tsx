@@ -1,3 +1,4 @@
+import Contact from "./sections/Contact";
 import Faq from "./sections/Faq";
 import Footer from "./sections/Footer";
 import Hero from "./sections/Hero";
@@ -14,6 +15,7 @@ export default function Home() {
       <WhoWeWorkWith />
       <Portfolio />
       <Faq />
+      <Contact />
       <Footer />
     </>
   );

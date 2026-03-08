@@ -1,13 +1,154 @@
 "use client";
 
-import Image from "next/image";
+import { motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Container from "../../components/Container";
+
+const PORTFOLIO_IMAGES = [
+  "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1772946548/Screenshot_2026-03-08_at_10.54.00_AM_d92gva.png",
+  "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1772946265/Screenshot_2026-03-08_at_10.49.17_AM_wggrq6.png",
+  "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1772952924/Screenshot_2026-03-08_at_12.39.46_PM_edzcnr.png",
+];
+
+const HeroProjectShowcase = ({ images }: { images: string[] }) => {
+  const [activeSlide, setActiveSlide] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scrollToSlide = (index: number) => {
+    const container = scrollRef.current;
+    if (!container) return;
+    const card = container.children[index] as HTMLElement;
+    if (card) card.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+    setActiveSlide(index);
+  };
+
+  useEffect(() => {
+    const container = scrollRef.current;
+    if (!container) return;
+    const onScroll = () => {
+      const { scrollLeft, clientWidth } = container;
+      setActiveSlide(Math.round(scrollLeft / clientWidth));
+    };
+    container.addEventListener("scroll", onScroll, { passive: true });
+    return () => container.removeEventListener("scroll", onScroll);
+  }, []);
+
+  return (
+    <>
+      {/* Desktop View */}
+      <div className="hidden lg:flex w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 mt-4 sm:mt-6 mb-20 md:mb-32 relative flex-row items-center justify-center gap-0">
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="absolute -top-8 left-1/2 -translate-x-1/2 text-xs text-gray-400 font-medium tracking-wide uppercase whitespace-nowrap"
+        >
+          Our most recent works
+        </motion.p>
+        {/* Left Card */}
+        <motion.div
+          initial={{ opacity: 0, x: 50, y: 20, rotate: -10 }}
+          animate={{ opacity: 1, x: 0, y: 0, rotate: -6 }}
+          whileHover={{ scale: 1.05, rotate: -2, zIndex: 30 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="w-[45%] aspect-[16/10] rounded-2xl overflow-hidden shadow-xl border-[2px] border-white/50 absolute left-4 lg:left-0 top-1/2 -translate-y-1/2 z-10 bg-gray-100 cursor-pointer"
+        >
+          <img
+            src={images[1]}
+            alt="Project 2"
+            className="w-full h-full object-cover object-top"
+          />
+        </motion.div>
+
+        {/* Right Card */}
+        <motion.div
+          initial={{ opacity: 0, x: -50, y: 20, rotate: 10 }}
+          animate={{ opacity: 1, x: 0, y: 0, rotate: 6 }}
+          whileHover={{ scale: 1.05, rotate: 2, zIndex: 30 }}
+          transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+          className="w-[45%] aspect-[16/10] rounded-2xl overflow-hidden shadow-xl border-[2px] border-white/50 absolute right-4 lg:right-0 top-1/2 -translate-y-1/2 z-10 bg-gray-100 cursor-pointer"
+        >
+          <img
+            src={images[2]}
+            alt="Project 3"
+            className="w-full h-full object-cover object-top"
+          />
+        </motion.div>
+
+        {/* Center Card */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          whileHover={{ scale: 1.02 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+          className="w-[55%] lg:w-[60%] aspect-[16/10] rounded-2xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.3)] border-[3px] border-white/80 relative z-20 bg-gray-100 cursor-pointer"
+        >
+          <img
+            src={images[0]}
+            alt="Project 1"
+            className="w-full h-full object-cover object-top"
+          />
+        </motion.div>
+      </div>
+
+      {/* Scroll-Snap Carousel (below lg) */}
+      <div className="lg:hidden w-full flex flex-col items-center mt-2 sm:mt-4 mb-10 sm:mb-16 md:mb-20">
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="text-center text-[10px] sm:text-xs text-gray-400 font-medium tracking-wide uppercase mb-3 px-4"
+        >
+          Our most recent works
+        </motion.p>
+
+        <div
+          ref={scrollRef}
+          className="w-full flex overflow-x-auto snap-x snap-mandatory gap-4 pb-2"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none", paddingInline: "1rem", scrollPaddingInline: "1rem" }}
+        >
+          {images.map((src, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 + idx * 0.1 }}
+              className="flex-none w-[calc(100%-2rem)] sm:w-[70%] md:w-[60%] snap-start aspect-[4/3] sm:aspect-[16/10] rounded-xl overflow-hidden shadow-[0_8px_24px_-8px_rgba(0,0,0,0.25)] border-[2px] border-white/60 bg-gray-100"
+            >
+              <img
+                src={src}
+                alt={`Project ${idx + 1}`}
+                className="w-full h-full object-cover object-top select-none"
+                draggable={false}
+              />
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Dot indicators */} 
+        <div className="flex items-center gap-2 mt-3">
+          {images.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => scrollToSlide(idx)}
+              className={`rounded-full transition-all duration-300 ${
+                activeSlide === idx
+                  ? "w-5 h-1.5 bg-blue-600"
+                  : "w-1.5 h-1.5 bg-gray-300"
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+    </>
+  );
+};
 
 function HeroContent() {
   const d = new Date();
-  let month = d.getMonth();
+  const month = d.getMonth();
   const months = [
     "January",
     "February",
@@ -22,14 +163,25 @@ function HeroContent() {
     "November",
     "December",
   ];
-  let year = d.getFullYear();
+  const year = d.getFullYear();
   const words = useMemo(
     () => ["7 days", "2 weeks", "record time", "with confidence"],
-    []
+    [],
   );
   const [currentText, setCurrentText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
+
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      window.requestAnimationFrame(() => setIsScrolled(window.scrollY > 50));
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const word = words[currentIndex];
@@ -53,172 +205,146 @@ function HeroContent() {
           }
         }
       },
-      isTyping ? 120 : currentText.length === word.length ? 1500 : 50
+      isTyping ? 120 : currentText.length === word.length ? 1500 : 50,
     );
 
     return () => clearTimeout(typeTimer);
   }, [currentText, isTyping, currentIndex, words]);
 
+  const navItems = [
+    { name: "Testimonials", href: "#testimonials" },
+    { name: "Solutions", href: "#services" },
+    { name: "Our Works", href: "#portfolio" },
+    { name: "FAQs", href: "#faqs" },
+  ];
+
   return (
-    <section className="min-h-screen flex flex-col justify-between relative overflow-hidden bg-white border-b-[1px] border-slate-200">
-      <div className="absolute top-0 left-0 w-1/2 h-full bg-gray-50 z-0"></div>
-      <div className="absolute top-20 left-20 w-64 h-64 rounded-full bg-blue-50 z-0 blur-3xl opacity-60"></div>
-      <div className="absolute bottom-20 right-20 w-72 h-72 rounded-full bg-indigo-50 z-0 blur-3xl opacity-60"></div>
+    <section className="relative flex flex-col items-center w-full h-auto lg:min-h-screen bg-white pt-24 sm:pt-28 md:pt-32 border-b border-gray-200">
+      {/* Background Elements */}
 
-      <Container className="flex-1 flex flex-col justify-center z-10 py-16 xl:py-12">
-        <style jsx>{`
-          @media (min-width: 1230px) {
-            .hero-container {
-              display: grid;
-              grid-template-columns: repeat(2, 1fr);
-              gap: 3rem;
-              align-items: center;
-            }
-            .hero-content {
-              order: 1;
-              text-align: left;
-            }
-            .hero-content .left-bar {
-              display: block;
-            }
-            .hero-content .hero-paragraph {
-              margin-left: 0;
-              margin-right: 0;
-              margin-top: 1rem;
-              margin-bottom: 1rem;
-            }
-            .hero-content .button-group {
-              justify-content: flex-start;
-              margin-top: 2rem;
-            }
-            .hero-image {
-              order: 2;
-              margin-top: 0;
-            }
-            .hero-image .image-container {
-              max-width: none;
-            }
-          }
-        `}</style>
+      {/* Navbar implementation */}
+      <header className="fixed top-0 left-0 right-0 z-50">
+        <nav
+          className={`mx-auto transition-all duration-300 ${
+            isScrolled
+              ? "mt-2 sm:mt-4 max-w-4xl px-6 sm:px-8 bg-white/80 backdrop-blur-md rounded-sm border border-gray-200 shadow-sm py-4"
+              : "w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-4 sm:py-6 bg-transparent border-transparent"
+          }`}
+        >
+          <div className="flex items-center justify-between">
+            <Link
+              href="/"
+              className="font-serif text-xl sm:text-2xl text-gray-900 leading-none"
+            >
+              <span className="text-blue-600">AK</span> Studio
+            </Link>
 
-        <div className="hero-container flex flex-col gap-8 md:gap-12 items-center relative">
-          <div className="hero-content relative w-full text-center">
-            <div className="left-bar hidden absolute -left-4 top-0 w-1 h-24 bg-blue-500"></div>
-            <h2 className="text-sm uppercase tracking-wider text-blue-600 mb-1 font-medium">
-              Web Development Agency
-            </h2>
-            <h1 className="text-3xl md:text-5xl lg:text-5xl 2xl:text-6xl font-serif mb-3 leading-tight">
-              We build <span className="font-medium">high-converting</span>{" "}
-              Websites & MVPs
-            </h1>
-
-            <div className="h-10 mb-2 md:mb-3 md:h-12 2xl:h-14">
-              <div className="text-blue-600 text-lg sm:text-xl md:text-2xl lg:text-3xl font-light relative overflow-hidden h-full 2xl:mt-6 mt-4">
-                <span>Launch your business in </span>
-                <span className="inline-block font-serif relative whitespace-nowrap">
-                  {currentText}
-                  <span className="inline-block w-[2px] h-[1.2em] bg-blue-600 ml-1 align-middle animate-blink"></span>
-                </span>
-              </div>
+            {/* Desktop Nav */}
+            <div className="hidden md:flex items-center gap-8">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors"
+                >
+                  {item.name}
+                </Link>
+              ))}
             </div>
 
-            <p className="hero-paragraph text-gray-700 max-w-lg mx-auto my-0 max-sm:text-sm">
-              We help founders & creators launch fast, sell better, and grow
-              online — with high-converting websites and MVPs, built in weeks,
-              not months. From idea to live product that drives real business
-              results.
-            </p>
-
-            <div className="button-group flex flex-wrap justify-center gap-4 md:gap-6 mt-6">
+            <div className="hidden md:block">
               <Link
                 href="https://cal.com/anish-kunwar-7lyj6e/quick-consultation"
                 target="_blank"
-                className="group relative sm:px-6 sm:py-3 px-4 py-2 overflow-hidden"
+                className="bg-blue-600 text-white hover:bg-blue-700 px-5 py-2.5 rounded-sm text-sm font-medium transition-colors shadow-md shadow-blue-500/20"
               >
-                <span className="absolute inset-0 w-full h-full bg-blue-600 transition-all duration-300 ease-out group-hover:bg-opacity-80"></span>
-                <span className="relative text-white">Book A Free Call</span>
+                Get Started
               </Link>
+            </div>
 
+            {/* Mobile Nav Toggle */}
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="md:hidden p-2 text-gray-600"
+            >
+              {menuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+
+          {/* Mobile Menu */}
+          {menuOpen && (
+            <div className="md:hidden absolute top-full left-4 right-4 mt-2 p-4 bg-white rounded-2xl shadow-xl border border-gray-100 flex flex-col gap-4">
+              {navItems.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="text-gray-700 font-medium py-2 px-2 hover:bg-gray-50 rounded-lg"
+                >
+                  {item.name}
+                </Link>
+              ))}
               <Link
-                href="#portfolio"
-                className="group relative sm:px-6 sm:py-3 px-4 py-2 overflow-hidden border border-gray-200"
+                href="https://cal.com/anish-kunwar-7lyj6e/quick-consultation"
+                target="_blank"
+                onClick={() => setMenuOpen(false)}
+                className="bg-blue-600 text-white text-center py-3 rounded-xl font-medium mt-2 shadow-md shadow-blue-500/20"
               >
-                <span className="absolute inset-0 w-0 bg-gray-100 transition-all duration-300 ease-out group-hover:w-full"></span>
-                <span className="relative text-gray-800">
-                  See How We Help Founders
-                </span>
+                Get Started
               </Link>
             </div>
+          )}
+        </nav>
+      </header>
 
-            <div className="mt-8 text-sm text-gray-500 max-sm:text-xs">
-              <p>
-                Limited slots available for {months[month]}, {year} — Book now
-                to secure your project
-              </p>
-            </div>
-          </div>
+      {/* Hero Content */}
+      <Container className="relative z-10 flex flex-col items-center justify-center text-center lg:flex-1 mt-8 sm:mt-10 w-full mb-0">
+        <motion.h1
+          initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="text-[8.5vw] sm:text-[7.5vw] md:text-6xl lg:text-7xl xl:text-[5rem] font-serif text-gray-900 leading-[1.1] mb-6 max-w-5xl px-0 tracking-tight whitespace-nowrap md:whitespace-normal"
+        >
+          We build <span className="text-blue-600">high-converting</span>
+          <br className="block" /> Websites & MVPs
+        </motion.h1>
 
-          <div className="hero-image w-full max-sm:mt-2 sm:-mt-[6px]">
-            <div className="image-container relative w-full aspect-[1/1] max-w-sm sm:max-w-md mx-auto">
-              <div className="absolute -top-3 -right-3 w-full h-full border-2 border-blue-500 rounded-lg"></div>
-              <div className="absolute inset-0 shadow-2xl rounded-lg overflow-hidden">
-                <Image
-                  src="https://res.cloudinary.com/dmq5tx0bd/image/upload/v1751122048/ChatGPT_Image_Jun_28_2025_08_31_19_PM_b6ghjp.png"
-                  alt="Anish"
-                  fill
-                  className="object-cover transition-transform duration-700 hover:scale-105"
-                  priority
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </Container>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mx-auto max-w-[90%] sm:max-w-2xl lg:max-w-3xl text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed mb-6 sm:mb-8 lg:mb-12"
+        >
+          We help founders & creators launch fast, sell better, and grow online
+          — with high-converting websites and MVPs, built in weeks, not months.
+          From idea to live product that drives real business results.
+        </motion.p>
 
-      <div className="w-full flex flex-col sm:flex-row justify-between items-center py-6 px-4 sm:px-8 md:px-12 z-10 border-t-[1px] border-slate-200 gap-4">
-        <div className="flex flex-wrap justify-center gap-4 sm:gap-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto px-4 sm:px-0 mb-4 sm:mb-6 lg:mb-8 max-sm:mt-4"
+        >
           <Link
-            href="#testimonials"
-            className="text-gray-500 hover:text-blue-600 transition-colors"
+            href="https://cal.com/anish-kunwar-7lyj6e/quick-consultation"
+            target="_blank"
+            className="w-full sm:w-auto px-8 lg:px-10 py-3.5 lg:py-4 bg-blue-600 text-white rounded-none text-sm lg:text-base font-medium shadow-lg shadow-blue-500/30 hover:shadow-blue-500/50 hover:bg-blue-700 hover:-translate-y-0.5 transition-all duration-300"
           >
-            Testimonials
-          </Link>
-          <Link
-            href="#services"
-            className="text-gray-500 hover:text-blue-600 transition-colors"
-          >
-            Solutions
+            Start Building
           </Link>
           <Link
             href="#portfolio"
-            className="text-gray-500 hover:text-blue-600 transition-colors"
+            className="w-full sm:w-auto px-8 lg:px-10 py-3.5 lg:py-4 bg-white text-gray-700 border border-gray-200 rounded-none text-sm lg:text-base font-medium hover:bg-gray-50 hover:border-gray-300 hover:-translate-y-0.5 transition-all duration-300 shadow-sm"
           >
-            Our Works
+            Request a demo
           </Link>
-          <Link
-            href="#faqs"
-            className="text-gray-500 hover:text-blue-600 transition-colors"
-          >
-            FAQs
-          </Link>
-        </div>
+        </motion.div>
+      </Container>
 
-        <div className="flex items-center gap-2 text-gray-500 hover:text-blue-600 transition-colors">
-          <span>See More</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M12 5v14M5 12l7 7 7-7" />
-          </svg>
-        </div>
+      {/* Project Showcase */}
+      <div className="w-full px-0 sm:px-4 md:px-6 lg:px-8 mt-0 sm:mt-2 lg:mt-6 mb-0 max-w-full sm:max-w-[95%] md:max-w-[1400px] lg:max-w-[1500px] xl:max-w-[1600px] mx-auto">
+        <HeroProjectShowcase images={PORTFOLIO_IMAGES} />
       </div>
     </section>
   );

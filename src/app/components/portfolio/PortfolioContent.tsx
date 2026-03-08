@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
 import { useState } from "react";
 
 // Define types
@@ -177,7 +176,7 @@ function PortfolioContent() {
         "A brand-focused website for a traditional tea company that showcases their unique offerings and multiple branch locations. The site enhances their online presence while preserving their cultural heritage through modern design.",
       tags: ["E-commerce", "Brand Strategy", "Multi-location"],
       image:
-        "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/anish's-portfolio/hfzlg4naommrv8dbxhsz",
+        "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1772942788/anish1_1_lagicq.png",
       website: "https://iranichiya.com",
       businessResults: "40% increase in brand visibility + online traffic",
       challenge:
@@ -192,13 +191,28 @@ function PortfolioContent() {
         "An MVP fitness application that enables users to track and record their gym progress. Features intuitive workout logging, progress visualization, and personalized fitness journey tracking.",
       tags: ["SaaS", "Full Stack App", "User Experience"],
       image:
-        "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1753503608/anish2_2x_eywzql.png",
+        "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1772942788/anish2_rpu4wa.png",
       website: "https://www.fambook.pro/",
       businessResults: "Helped 40+ families to secure their memories",
       challenge:
         "Families are spread across the world, and staying privately connected is hard. No platform existed just for family bonding and preserving legacy.",
       solution:
         "We built Fambook, a private social app for families to share posts, photos, events, and family trees—preserving memories and staying connected across any distance.",
+    },
+    {
+      id: 3,
+      title: "Popular Tent House - Digital Rebrand",
+      description:
+        "A premium website redesign for Kathmandu's leading event solutions company, transforming their outdated online presence into a modern platform that truly reflects their strong offline brand reputation and expertise.",
+      tags: ["Event Services", "CMS Integration", "Product Catalog"],
+      image:
+        "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1772942899/ans_2x_houko8.jpg",
+      website: "https://populartent.com",
+      businessResults: "Modernized brand identity + self-managed product catalog",
+      challenge:
+        "Popular Tent House had a strong offline presence but an outdated website that failed to reflect their brand value, causing inconsistency in how customers perceived the business.",
+      solution:
+        "We built a premium website with a full product rental catalog and a CMS so the admin can manage listings independently, eliminating the gap between their offline reputation and online presence.",
     },
   ];
 
@@ -229,29 +243,6 @@ function PortfolioContent() {
             isFocused={focusedProject === project.id}
           />
         ))}
-      </div>
-
-      <div className="mt-20 border-t border-gray-100 pt-12">
-        <div className="max-w-3xl mx-auto text-center">
-          <h3 className="text-2xl md:text-3xl font-serif mb-6">
-            Ready to be our next{" "}
-            <span className="text-blue-600">success story</span>?
-          </h3>
-          <p className="text-gray-700 mb-10">
-            Book a free discovery call to discuss your project needs and see how
-            we can help you achieve similar results.
-          </p>
-          <div className="flex flex-wrap justify-center">
-            <Link
-              href="https://cal.com/anish-kunwar-7lyj6e/quick-consultation"
-              target="_blank"
-              className="group relative px-8 py-3 overflow-hidden"
-            >
-              <span className="absolute inset-0 w-full h-full bg-blue-600 transition-all duration-300 ease-out group-hover:bg-opacity-80"></span>
-              <span className="relative text-white">Book A Free Call</span>
-            </Link>
-          </div>
-        </div>
       </div>
     </div>
   );
