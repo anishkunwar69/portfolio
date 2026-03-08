@@ -25,10 +25,9 @@ const FooterContent = () => {
   };
 
   const navItems = [
-    { name: "Who We Work With", path: "#who-we-work-with" },
-    { name: "Solutions", path: "#services" },
-    { name: "Our Works", path: "#portfolio" },
     { name: "Testimonials", path: "#testimonials" },
+    { name: "Our Works", path: "#portfolio" },
+    { name: "FAQs", path: "#faqs" },
   ];
 
   return (
@@ -39,8 +38,10 @@ const FooterContent = () => {
             <h2 className="text-3xl font-serif mb-4">AK Studio</h2>
             <div className="w-12 h-1 bg-blue-400 mb-6"></div>
             <p className="text-blue-100 max-w-md mb-8">
-            We help founders & creators launch fast, sell smarter, and grow online — with high-converting websites and MVPs built in weeks, not months.
-From idea to launch, we turn your vision into a live product that drives real business results — fast.
+              We help founders & creators launch fast, sell smarter, and grow
+              online — with high-converting websites and MVPs built in weeks,
+              not months. From idea to launch, we turn your vision into a live
+              product that drives real business results — fast.
             </p>
           </div>
 
@@ -131,7 +132,11 @@ From idea to launch, we turn your vision into a live product that drives real bu
           </div>
 
           <div className="mt-8">
-            <Link href="https://cal.com/anish-kunwar-7lyj6e/quick-consultation" className="inline-flex items-center group" target="_blank">
+            <Link
+              href="https://cal.com/anish-kunwar-7lyj6e/quick-consultation"
+              className="inline-flex items-center group"
+              target="_blank"
+            >
               <span className="mr-2 bg-white text-blue-600 px-5 py-2.5 rounded-lg font-medium transition-transform duration-300 group-hover:-translate-y-1">
                 Book A Free Call
               </span>
@@ -192,8 +197,6 @@ From idea to launch, we turn your vision into a live product that drives real bu
                   </svg>
                 </div>
               </Link>
-
-              
             </div>
           </div>
         </div>

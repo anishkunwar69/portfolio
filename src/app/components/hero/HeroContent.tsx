@@ -2,8 +2,9 @@
 
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Container from "../../components/Container";
 
 const PORTFOLIO_IMAGES = [
@@ -14,15 +15,22 @@ const PORTFOLIO_IMAGES = [
 
 const HeroProjectShowcase = ({ images }: { images: string[] }) => {
   const [activeSlide, setActiveSlide] = useState(0);
+  const [autoPlay, setAutoPlay] = useState(true);
   const scrollRef = useRef<HTMLDivElement>(null);
 
-  const scrollToSlide = (index: number) => {
+  const scrollToSlide = useCallback((index: number, stopAuto = false) => {
     const container = scrollRef.current;
     if (!container) return;
     const card = container.children[index] as HTMLElement;
-    if (card) card.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+    if (card)
+      card.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center",
+      });
     setActiveSlide(index);
-  };
+    if (stopAuto) setAutoPlay(false);
+  }, []);
 
   useEffect(() => {
     const container = scrollRef.current;
@@ -34,6 +42,20 @@ const HeroProjectShowcase = ({ images }: { images: string[] }) => {
     container.addEventListener("scroll", onScroll, { passive: true });
     return () => container.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!autoPlay) return;
+    
+    const interval = setInterval(() => {
+      setActiveSlide((prev) => {
+        const nextSlide = (prev + 1) % images.length;
+        scrollToSlide(nextSlide, false);
+        return nextSlide;
+      });
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [autoPlay, images.length, scrollToSlide]);
 
   return (
     <>
@@ -55,11 +77,16 @@ const HeroProjectShowcase = ({ images }: { images: string[] }) => {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="w-[45%] aspect-[16/10] rounded-2xl overflow-hidden shadow-xl border-[2px] border-white/50 absolute left-4 lg:left-0 top-1/2 -translate-y-1/2 z-10 bg-gray-100 cursor-pointer"
         >
-          <img
-            src={images[1]}
-            alt="Project 2"
-            className="w-full h-full object-cover object-top"
-          />
+          <div className="relative w-full h-full">
+            <Image
+              src={images[1]}
+              alt="Project 2"
+              fill
+              sizes="(max-width: 1024px) 0vw, 45vw"
+              className="object-cover object-top"
+              priority
+            />
+          </div>
         </motion.div>
 
         {/* Right Card */}
@@ -70,11 +97,16 @@ const HeroProjectShowcase = ({ images }: { images: string[] }) => {
           transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
           className="w-[45%] aspect-[16/10] rounded-2xl overflow-hidden shadow-xl border-[2px] border-white/50 absolute right-4 lg:right-0 top-1/2 -translate-y-1/2 z-10 bg-gray-100 cursor-pointer"
         >
-          <img
-            src={images[2]}
-            alt="Project 3"
-            className="w-full h-full object-cover object-top"
-          />
+          <div className="relative w-full h-full">
+            <Image
+              src={images[2]}
+              alt="Project 3"
+              fill
+              sizes="(max-width: 1024px) 0vw, 45vw"
+              className="object-cover object-top"
+              priority
+            />
+          </div>
         </motion.div>
 
         {/* Center Card */}
@@ -85,16 +117,21 @@ const HeroProjectShowcase = ({ images }: { images: string[] }) => {
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
           className="w-[55%] lg:w-[60%] aspect-[16/10] rounded-2xl overflow-hidden shadow-[0_20px_50px_-12px_rgba(0,0,0,0.3)] border-[3px] border-white/80 relative z-20 bg-gray-100 cursor-pointer"
         >
-          <img
-            src={images[0]}
-            alt="Project 1"
-            className="w-full h-full object-cover object-top"
-          />
+          <div className="relative w-full h-full">
+            <Image
+              src={images[0]}
+              alt="Project 1"
+              fill
+              sizes="(max-width: 1024px) 0vw, 60vw"
+              className="object-cover object-top"
+              priority
+            />
+          </div>
         </motion.div>
       </div>
 
       {/* Scroll-Snap Carousel (below lg) */}
-      <div className="lg:hidden w-full flex flex-col items-center mt-2 sm:mt-4 mb-10 sm:mb-16 md:mb-20">
+      <div className="lg:hidden w-full flex flex-col items-center mt-2 sm:mt-4 mb-18 sm:mb-20 md:mb-20">
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -107,7 +144,12 @@ const HeroProjectShowcase = ({ images }: { images: string[] }) => {
         <div
           ref={scrollRef}
           className="w-full flex overflow-x-auto snap-x snap-mandatory gap-4 pb-2"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none", paddingInline: "1rem", scrollPaddingInline: "1rem" }}
+          style={{
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
+            paddingInline: "1rem",
+            scrollPaddingInline: "1rem",
+          }}
         >
           {images.map((src, idx) => (
             <motion.div
@@ -115,14 +157,20 @@ const HeroProjectShowcase = ({ images }: { images: string[] }) => {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 + idx * 0.1 }}
-              className="flex-none w-[calc(100%-2rem)] sm:w-[70%] md:w-[60%] snap-start aspect-[4/3] sm:aspect-[16/10] rounded-xl overflow-hidden shadow-[0_8px_24px_-8px_rgba(0,0,0,0.25)] border-[2px] border-white/60 bg-gray-100"
+              className="flex-none w-[calc(100%-2rem)] sm:w-[70%] md:w-[60%] snap-start aspect-[16/10] rounded-xl overflow-hidden border-[2px] border-white/60 bg-gray-100"
             >
-              <img
-                src={src}
-                alt={`Project ${idx + 1}`}
-                className="w-full h-full object-cover object-top select-none"
-                draggable={false}
-              />
+              <div className="relative w-full h-full">
+                <Image
+                  src={src}
+                  alt={`Project ${idx + 1}`}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 70vw, 60vw"
+                  className="select-none object-cover object-top"
+                  draggable={false}
+                  priority={idx === 0}
+                  loading={idx === 0 ? "eager" : "lazy"}
+                />
+              </div>
             </motion.div>
           ))}
         </div>
@@ -132,7 +180,8 @@ const HeroProjectShowcase = ({ images }: { images: string[] }) => {
           {images.map((_, idx) => (
             <button
               key={idx}
-              onClick={() => scrollToSlide(idx)}
+              onClick={() => scrollToSlide(idx, true)}
+              aria-label={`Go to slide ${idx + 1}`}
               className={`rounded-full transition-all duration-300 ${
                 activeSlide === idx
                   ? "w-5 h-1.5 bg-blue-600"
@@ -147,23 +196,6 @@ const HeroProjectShowcase = ({ images }: { images: string[] }) => {
 };
 
 function HeroContent() {
-  const d = new Date();
-  const month = d.getMonth();
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  const year = d.getFullYear();
   const words = useMemo(
     () => ["7 days", "2 weeks", "record time", "with confidence"],
     [],
@@ -211,12 +243,22 @@ function HeroContent() {
     return () => clearTimeout(typeTimer);
   }, [currentText, isTyping, currentIndex, words]);
 
-  const navItems = [
-    { name: "Testimonials", href: "#testimonials" },
-    { name: "Solutions", href: "#services" },
-    { name: "Our Works", href: "#portfolio" },
-    { name: "FAQs", href: "#faqs" },
-  ];
+  const navItems = useMemo(
+    () => [
+      { name: "Testimonials", href: "#testimonials" },
+      { name: "Our Works", href: "#portfolio" },
+      { name: "FAQs", href: "#faqs" },
+    ],
+    [],
+  );
+
+  const toggleMenu = useCallback(() => {
+    setMenuOpen((prev) => !prev);
+  }, []);
+
+  const closeMenu = useCallback(() => {
+    setMenuOpen(false);
+  }, []);
 
   return (
     <section className="relative flex flex-col items-center w-full h-auto lg:min-h-screen bg-white pt-24 sm:pt-28 md:pt-32 border-b border-gray-200">
@@ -225,10 +267,10 @@ function HeroContent() {
       {/* Navbar implementation */}
       <header className="fixed top-0 left-0 right-0 z-50">
         <nav
-          className={`mx-auto transition-all duration-300 ${
+          className={`transition-all duration-300 ${
             isScrolled
-              ? "mt-2 sm:mt-4 max-w-4xl px-6 sm:px-8 bg-white/80 backdrop-blur-md rounded-sm border border-gray-200 shadow-sm py-4"
-              : "w-full max-w-7xl px-4 sm:px-6 lg:px-8 py-4 sm:py-6 bg-transparent border-transparent"
+              ? "mt-2 sm:mt-4 mx-4 sm:mx-6 lg:mx-auto max-w-4xl px-6 sm:px-8 bg-white/80 backdrop-blur-md rounded-sm border border-gray-200 shadow-sm py-4"
+              : "w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 bg-transparent border-transparent"
           }`}
         >
           <div className="flex items-center justify-between">
@@ -264,8 +306,9 @@ function HeroContent() {
 
             {/* Mobile Nav Toggle */}
             <button
-              onClick={() => setMenuOpen(!menuOpen)}
+              onClick={toggleMenu}
               className="md:hidden p-2 text-gray-600"
+              aria-label="Toggle menu"
             >
               {menuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -273,13 +316,13 @@ function HeroContent() {
 
           {/* Mobile Menu */}
           {menuOpen && (
-            <div className="md:hidden absolute top-full left-4 right-4 mt-2 p-4 bg-white rounded-2xl shadow-xl border border-gray-100 flex flex-col gap-4">
+            <div className="md:hidden absolute top-full left-0 right-0 mt-2 p-4 bg-white rounded-sm shadow-xl border border-gray-100 flex flex-col gap-4">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
                   href={item.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="text-gray-700 font-medium py-2 px-2 hover:bg-gray-50 rounded-lg"
+                  onClick={closeMenu}
+                  className="text-gray-700 font-medium py-2 px-2 hover:bg-gray-50 rounded-sm"
                 >
                   {item.name}
                 </Link>
@@ -287,8 +330,8 @@ function HeroContent() {
               <Link
                 href="https://cal.com/anish-kunwar-7lyj6e/quick-consultation"
                 target="_blank"
-                onClick={() => setMenuOpen(false)}
-                className="bg-blue-600 text-white text-center py-3 rounded-xl font-medium mt-2 shadow-md shadow-blue-500/20"
+                onClick={closeMenu}
+                className="bg-blue-600 text-white text-center py-3 rounded-sm font-medium mt-2 shadow-md shadow-blue-500/20"
               >
                 Get Started
               </Link>
@@ -315,9 +358,9 @@ function HeroContent() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="mx-auto max-w-[90%] sm:max-w-2xl lg:max-w-3xl text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed mb-6 sm:mb-8 lg:mb-12"
         >
-          We help founders & creators launch fast, sell better, and grow online
-          — with high-converting websites and MVPs, built in weeks, not months.
-          From idea to live product that drives real business results.
+          We help founders & businesses launch fast, sell better, and grow
+          online — with high-converting websites and MVPs, built in weeks, not
+          months. From idea to live product that drives real business results.
         </motion.p>
 
         <motion.div
@@ -337,7 +380,7 @@ function HeroContent() {
             href="#portfolio"
             className="w-full sm:w-auto px-8 lg:px-10 py-3.5 lg:py-4 bg-white text-gray-700 border border-gray-200 rounded-none text-sm lg:text-base font-medium hover:bg-gray-50 hover:border-gray-300 hover:-translate-y-0.5 transition-all duration-300 shadow-sm"
           >
-            Request a demo
+            View our works
           </Link>
         </motion.div>
       </Container>

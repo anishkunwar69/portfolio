@@ -4,7 +4,7 @@ function Footer() {
   return (
     <section
       id="footer"
-      className="relative overflow-hidden bg-blue-500 text-white"
+      className="relative overflow-hidden bg-blue-600 text-white"
     >
 
       <div className="relative z-10">

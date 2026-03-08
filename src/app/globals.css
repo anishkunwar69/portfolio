@@ -12,6 +12,10 @@
   --color-extra2: #FF8833;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @layer utilities {
   .bg-grid-pattern {
     background-image: 

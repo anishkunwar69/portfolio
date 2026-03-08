@@ -26,9 +26,9 @@ function TestimonialContent() {
       author: "Saroj Paudel",
       company: "Irani Chiya",
       role: "Founder & CEO",
-      profileImage: "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/anish's-portfolio/hmpkw3fuaextkb76zl0b",
+      profileImage:
+        "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/anish's-portfolio/hmpkw3fuaextkb76zl0b",
       results: "40% increase in brand visibility + online traffic",
-      
     },
     {
       type: "video",
@@ -38,9 +38,9 @@ function TestimonialContent() {
       author: "Rinchen Phuntsok",
       company: "FitPal",
       role: "Founder",
-      profileImage: "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/anish's-portfolio/t1lt7xpfddfzpw2oqqco",
+      profileImage:
+        "https://res.cloudinary.com/dmq5tx0bd/image/upload/f_auto,q_auto/v1/anish's-portfolio/t1lt7xpfddfzpw2oqqco",
       results: "Secured 250+ users in 2 weeks of launch",
-      
     },
     {
       type: "text",
@@ -49,13 +49,14 @@ function TestimonialContent() {
       author: "Shayuj Pokharel",
       company: "",
       role: "Videographer",
-      profileImage: "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1772954702/490342396_1427338601611419_632769221839554508_n_jpoaca.jpg",
+      profileImage:
+        "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1772954702/490342396_1427338601611419_632769221839554508_n_jpoaca.jpg",
       results: "Stronger online presence and branding",
-      
     },
     {
       type: "text",
-      quote: "I would love the opportunity to bring your vision to life. Let's collaborate and build something extraordinary together. Your success story could be featured right here—I can't wait to work with you!",
+      quote:
+        "I would love the opportunity to bring your vision to life. Let's collaborate and build something extraordinary together. Your success story could be featured right here—I can't wait to work with you!",
       author: "Your Name",
       company: "",
       role: "Future You",
@@ -63,8 +64,8 @@ function TestimonialContent() {
       results: "Your next big milestone",
       cta: {
         text: "Start Your Project",
-        link: "#contact"
-      }
+        link: "https://cal.com/anish-kunwar-7lyj6e/quick-consultation",
+      },
     },
   ];
 
@@ -103,8 +104,8 @@ function TestimonialContent() {
           </span>
         </h1>
         <p className="text-gray-700 max-w-2xl">
-          Real feedback from businesses I&apos;ve worked with to create impactful
-          digital experiences.
+          Real feedback from businesses I&apos;ve worked with to create
+          impactful digital experiences.
         </p>
       </div>
 
@@ -116,9 +117,7 @@ function TestimonialContent() {
               key={index}
               className="video-testimonial-grid grid grid-cols-1 gap-12"
             >
-              <div
-                className="relative rounded-xl overflow-hidden shadow-xl order-1 transform hover:translate-y-[-5px] transition-all duration-300"
-              >
+              <div className="relative rounded-xl overflow-hidden shadow-xl order-1 transform hover:translate-y-[-5px] transition-all duration-300">
                 <div className="aspect-video">
                   <iframe
                     className="w-full h-full"
@@ -130,13 +129,11 @@ function TestimonialContent() {
                 </div>
               </div>
 
-              <div
-                className="video-content order-2 px-4 py-6 bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-md mt-[-20px] z-10 mx-0 w-full"
-              >
+              <div className="video-content order-2 px-4 py-6 bg-gradient-to-br from-white to-gray-50 rounded-xl shadow-md mt-[-20px] z-10 mx-0 w-full">
                 <div className="mb-4 bg-blue-50 text-blue-700 py-2 px-4 rounded-md font-medium">
                   <span className="block">Results: {testimonial.results}</span>
                 </div>
-                
+
                 <div className="relative mb-6">
                   <svg
                     className="absolute -top-8 -left-0 h-16 w-16 text-blue-500 opacity-30"
@@ -150,7 +147,6 @@ function TestimonialContent() {
                     {testimonial.quote}
                   </p>
                 </div>
-               
 
                 <div className="flex items-center mt-8 border-t border-gray-100 pt-4">
                   <div className="relative h-14 w-14 mr-4 rounded-full overflow-hidden shadow-md border-2 border-white ">
@@ -194,7 +190,7 @@ function TestimonialContent() {
                 <div className="mb-4 bg-blue-50 text-blue-700 py-2 px-4 rounded-md font-medium text-sm">
                   <span>Results: {testimonial.results}</span>
                 </div>
-                
+
                 <div className="flex items-center mb-6 pb-4 border-b border-gray-100">
                   <div className="relative h-12 w-12 mr-4 rounded-full overflow-hidden shadow-md border-2 border-white bg-blue-50 flex items-center justify-center">
                     {testimonial.profileImage ? (
@@ -206,8 +202,19 @@ function TestimonialContent() {
                         className="object-cover"
                       />
                     ) : (
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6 text-blue-400"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                        />
                       </svg>
                     )}
                   </div>
@@ -216,7 +223,9 @@ function TestimonialContent() {
                       {testimonial.author}
                     </p>
                     <p className="text-sm text-gray-500">
-                      {testimonial.role} {(testimonial.role && testimonial.company) && ","} {testimonial.company}
+                      {testimonial.role}{" "}
+                      {testimonial.role && testimonial.company && ","}{" "}
+                      {testimonial.company}
                     </p>
                   </div>
                 </div>
@@ -224,21 +233,31 @@ function TestimonialContent() {
                 <p className="text-gray-700 leading-relaxed text-left w-full mb-4">
                   {testimonial.quote}
                 </p>
-                
+
                 {testimonial.cta && (
                   <div className="mt-6 mb-2">
-                    <a 
+                    <a
                       href={testimonial.cta.link}
                       className="inline-flex items-center justify-center px-6 py-2.5 border border-transparent text-sm font-medium rounded-lg text-white bg-blue-600 hover:bg-blue-700 transition-all duration-300 shadow-sm hover:shadow-md group"
                     >
                       {testimonial.cta.text}
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4 ml-2 group-hover:translate-x-1 transition-transform"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M14 5l7 7m0 0l-7 7m7-7H3"
+                        />
                       </svg>
                     </a>
                   </div>
                 )}
-               
               </div>
             ))}
         </div>
