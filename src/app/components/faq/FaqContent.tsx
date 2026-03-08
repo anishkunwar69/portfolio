@@ -8,33 +8,33 @@ function FaqContent() {
   const faqs = [
     {
       id: "mvp-timeline",
-      question: "How long does it take to build an MVP?",
+      question: "How long does it take, and will you actually stick around till it's done?",
       answer:
-        "Typically, we deliver a fully functional MVP within 2-4 weeks. The timeline depends on the complexity of features, but our streamlined process ensures rapid deployment without compromising quality.",
+        "Honestly, landing pages usually take 1 to 2 weeks, MVPs anywhere from 3 to 6 weeks. But here's what actually matters — you'll know exactly where things stand at every step. No ghosting, no 'almost done' for 3 weeks straight. We've had clients who got burned like that before coming to us. We're not those guys.",
     },
     {
       id: "landing-page-included",
-      question: "What is included in the Premium Landing Page?",
+      question: "I've hired developers before and it went badly. Why would this be different?",
       answer:
-        "Our Premium Landing Page package includes custom design, copywriting, responsive development, SEO optimization, and integration with your preferred analytics and marketing tools.",
+        "Because we've heard that story too many times. Developer takes half the money, disappears, delivers something half-baked. The way we work, we agree on exactly what's being built before we touch a single line of code, you can see the progress throughout, and we don't mark something as done until you actually think it's done. Simple as that.",
     },
     {
-      id: "post-launch-support",
-      question: "Do you offer post-launch support?",
+      id: "pricing",
+      question: "Okay but how much does it actually cost?",
       answer:
-        "Yes, we provide 30 days of complimentary support after launch to ensure everything runs smoothly. We also offer ongoing maintenance packages for long-term peace of mind.",
+        "Landing pages are somewhere between $500 and $1500. MVPs usually $2000 to $5000 depending on what you need. We're not going to make you fill out a form just to find out we're out of your budget. Tell us what you're building and we'll give you a straight number, usually same day.",
     },
     {
-      id: "mvp-upgrade",
-      question: "Can I upgrade from MVP to a full-scale application?",
+      id: "timezone",
+      question: "You're in Nepal, will the timezone thing be a nightmare?",
       answer:
-        "Absolutely. Our code is built with scalability in mind. We use modern frameworks and best practices, making it easy to extend and scale your application as your user base grows.",
+        "Genuinely no. We've worked with clients in the US, UK, Australia and timezone has never been the problem people expect it to be. We schedule calls around your hours and we're responsive on Slack and email. Most clients forget about it after the first week.",
     },
     {
-      id: "technologies",
-      question: "What technologies do you use?",
+      id: "ownership",
+      question: "Do I actually own everything when we're done?",
       answer:
-        "We specialize in the modern stack: React, Next.js, TypeScript, and Tailwind CSS for the frontend, ensuring high performance and excellent developer experience.",
+        "Yes. Every line of code, every design file, every asset, fully yours the moment we wrap up. No weird licensing, no monthly fee to keep access, nothing like that. It's yours, full stop.",
     },
   ];
 
@@ -137,7 +137,7 @@ function FaqContent() {
           </h3>
           <p className="text-gray-700 mb-10">
             Book a free 30-minute strategy call to discuss your specific needs
-            and get a custom growth plan. Limited slots available each month.
+            and get a custom growth plan. Your dream project is just a few clicks away.
           </p>
           <div className="flex flex-wrap justify-center">
             <Link

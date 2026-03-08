@@ -81,6 +81,7 @@ const FooterContent = () => {
                 required
                 placeholder="Enter your email"
                 className="w-full px-4 py-3 pr-36 rounded-lg bg-white/5 border border-white/20 text-white placeholder:text-blue-200/70 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent"
+                disabled
               />
               <button
                 type="submit"
@@ -204,7 +205,7 @@ const FooterContent = () => {
 
       <div className="border-t border-blue-500/30 pt-8 mt-12 flex flex-col md:flex-row justify-between items-center">
         <div className="text-sm text-blue-200 mb-4 md:mb-0">
-          © {new Date().getFullYear()} AK Studio. All rights reserved.
+          © {new Date().getFullYear()} AK Studio.
         </div>
 
         <div className="text-xs bg-blue-700/50 px-3 py-1.5 rounded-full text-blue-100">

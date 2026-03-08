@@ -56,7 +56,7 @@ function TestimonialContent() {
     {
       type: "text",
       quote:
-        "I would love the opportunity to bring your vision to life. Let's collaborate and build something extraordinary together. Your success story could be featured right here—I can't wait to work with you!",
+        "We would love the opportunity to bring your vision to life. Let's collaborate and build something extraordinary together. Your success story could be featured right here—I can't wait to work with you!",
       author: "Your Name",
       company: "",
       role: "Future You",
@@ -97,14 +97,14 @@ function TestimonialContent() {
         </h2>
         <h1 className="text-4xl md:text-5xl font-serif mb-6">
           <span className="hidden sm:inline">
-            Hear From <span className="text-blue-600">My Clients</span>
+            Hear From <span className="text-blue-600">Our Clients</span>
           </span>
           <span className="sm:hidden">
             My Client&apos;s <span className="text-blue-600">Stories</span>
           </span>
         </h1>
         <p className="text-gray-700 max-w-2xl">
-          Real feedback from businesses I&apos;ve worked with to create
+          Real feedback from businesses we&apos;ve worked with to create
           impactful digital experiences.
         </p>
       </div>

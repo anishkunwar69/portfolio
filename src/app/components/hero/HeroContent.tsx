@@ -357,7 +357,7 @@ function HeroContent() {
           className="mx-auto max-w-[90%] sm:max-w-2xl lg:max-w-3xl text-gray-600 text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed mb-6 sm:mb-8 lg:mb-12"
         >
           We help founders & businesses launch fast, sell better, and grow
-          online — with high-converting websites and MVPs, built in weeks, not
+          online — with high converting websites and MVPs, built in weeks, not
           months. From idea to live product that drives real business results.
         </motion.p>
 
@@ -378,7 +378,7 @@ function HeroContent() {
             href="#portfolio"
             className="w-full sm:w-auto px-8 lg:px-10 py-3.5 lg:py-4 bg-white text-gray-700 border border-gray-200 rounded-none text-sm lg:text-base font-medium hover:bg-gray-50 hover:border-gray-300 hover:-translate-y-0.5 transition-all duration-300 shadow-sm"
           >
-            View our works
+          View Our Works
           </Link>
         </motion.div>
       </Container>
