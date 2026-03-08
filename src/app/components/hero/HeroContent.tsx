@@ -21,13 +21,11 @@ const HeroProjectShowcase = ({ images }: { images: string[] }) => {
   const scrollToSlide = useCallback((index: number, stopAuto = false) => {
     const container = scrollRef.current;
     if (!container) return;
-    const card = container.children[index] as HTMLElement;
-    if (card)
-      card.scrollIntoView({
-        behavior: "smooth",
-        block: "nearest",
-        inline: "center",
-      });
+    const scrollWidth = container.clientWidth;
+    container.scrollTo({
+      left: scrollWidth * index,
+      behavior: "smooth",
+    });
     setActiveSlide(index);
     if (stopAuto) setAutoPlay(false);
   }, []);
