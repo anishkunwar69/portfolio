@@ -8,13 +8,15 @@ function FaqContent() {
   const faqs = [
     {
       id: "mvp-timeline",
-      question: "How long does it take, and will you actually stick around till it's done?",
+      question:
+        "How long does it take, and will you actually stick around till it's done?",
       answer:
         "Honestly, landing pages usually take 1 to 2 weeks, MVPs anywhere from 3 to 6 weeks. But here's what actually matters — you'll know exactly where things stand at every step. No ghosting, no 'almost done' for 3 weeks straight. We've had clients who got burned like that before coming to us. We're not those guys.",
     },
     {
       id: "landing-page-included",
-      question: "I've hired developers before and it went badly. Why would this be different?",
+      question:
+        "I've hired developers before and it went badly. Why would this be different?",
       answer:
         "Because we've heard that story too many times. Developer takes half the money, disappears, delivers something half-baked. The way we work, we agree on exactly what's being built before we touch a single line of code, you can see the progress throughout, and we don't mark something as done until you actually think it's done. Simple as that.",
     },
@@ -65,10 +67,11 @@ function FaqContent() {
               {/* Question button */}
               <button
                 onClick={() => toggleFaq(index)}
-                className={`w-full text-left px-6 py-5 flex justify-between items-center transition-all duration-300 ${activeIndex === index
-                  ? "bg-gray-50"
-                  : "bg-white hover:bg-gray-50"
-                  }`}
+                className={`w-full text-left px-6 py-5 flex justify-between items-center transition-all duration-300 ${
+                  activeIndex === index
+                    ? "bg-gray-50"
+                    : "bg-white hover:bg-gray-50"
+                }`}
                 aria-expanded={activeIndex === index}
               >
                 <div className="flex items-center gap-4">
@@ -80,8 +83,9 @@ function FaqContent() {
                   </h3>
                 </div>
                 <div
-                  className={`transition-transform duration-300 ${activeIndex === index ? "rotate-180" : ""
-                    }`}
+                  className={`transition-transform duration-300 ${
+                    activeIndex === index ? "rotate-180" : ""
+                  }`}
                 >
                   <svg
                     width="16"
@@ -102,10 +106,11 @@ function FaqContent() {
               </button>
 
               <div
-                className={`overflow-hidden transition-transform duration-300 ease-out ${activeIndex === index
-                  ? "opacity-100 transform-none"
-                  : "opacity-0 transform translate-y-[-8px]"
-                  }`}
+                className={`overflow-hidden transition-transform duration-300 ease-out ${
+                  activeIndex === index
+                    ? "opacity-100 transform-none"
+                    : "opacity-0 transform translate-y-[-8px]"
+                }`}
                 style={{
                   height: activeIndex === index ? "auto" : 0,
                   transitionProperty: "opacity, transform, height",
@@ -120,10 +125,11 @@ function FaqContent() {
               </div>
 
               <div
-                className={`h-[1px] w-full transition-opacity duration-300 ${index === faqs.length - 1 || activeIndex === index
-                  ? "opacity-0"
-                  : "bg-gray-100"
-                  }`}
+                className={`h-[1px] w-full transition-opacity duration-300 ${
+                  index === faqs.length - 1 || activeIndex === index
+                    ? "opacity-0"
+                    : "bg-gray-100"
+                }`}
               ></div>
             </div>
           ))}
@@ -137,7 +143,8 @@ function FaqContent() {
           </h3>
           <p className="text-gray-700 mb-10">
             Book a free 30-minute strategy call to discuss your specific needs
-            and get a custom growth plan. Your dream project is just a few clicks away.
+            and get a custom growth plan. Your dream project is just a few
+            clicks away.
           </p>
           <div className="flex flex-wrap justify-center">
             <Link

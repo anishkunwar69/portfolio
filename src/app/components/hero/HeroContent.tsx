@@ -43,7 +43,7 @@ const HeroProjectShowcase = ({ images }: { images: string[] }) => {
 
   useEffect(() => {
     if (!autoPlay) return;
-    
+
     const interval = setInterval(() => {
       setActiveSlide((prev) => {
         const nextSlide = (prev + 1) % images.length;
@@ -173,7 +173,7 @@ const HeroProjectShowcase = ({ images }: { images: string[] }) => {
           ))}
         </div>
 
-        {/* Dot indicators */} 
+        {/* Dot indicators */}
         <div className="flex items-center gap-2 mt-3">
           {images.map((_, idx) => (
             <button
@@ -378,7 +378,7 @@ function HeroContent() {
             href="#portfolio"
             className="w-full sm:w-auto px-8 lg:px-10 py-3.5 lg:py-4 bg-white text-gray-700 border border-gray-200 rounded-none text-sm lg:text-base font-medium hover:bg-gray-50 hover:border-gray-300 hover:-translate-y-0.5 transition-all duration-300 shadow-sm"
           >
-          View Our Works
+            View Our Works
           </Link>
         </motion.div>
       </Container>

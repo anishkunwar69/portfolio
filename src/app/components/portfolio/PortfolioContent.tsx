@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 
 // Define types
@@ -243,6 +244,27 @@ function PortfolioContent() {
             isFocused={focusedProject === project.id}
           />
         ))}
+      </div>
+
+      <div className="mt-20 border-t border-gray-100 pt-12">
+        <div className="max-w-3xl mx-auto text-center">
+          <h3 className="text-2xl md:text-3xl font-serif mb-6">
+            Want to see <span className="text-blue-600">more concepts</span>?
+          </h3>
+          <p className="text-gray-700 mb-10">
+            Check out the concept projects built by us to get a feel for our design approach and capabilities.
+          </p>
+          <div className="flex flex-wrap justify-center">
+            <Link
+              href="https://docs.google.com/document/d/1wzl-PJqEI-CYUZYiCYSlkNh2GdqnhVUrXJjvZMPMN9Y/edit?usp=sharing"
+              target="_blank"
+              className="group relative px-8 py-3 overflow-hidden"
+            >
+              <span className="absolute inset-0 w-full h-full bg-blue-600 transition-all duration-300 ease-out group-hover:bg-opacity-80"></span>
+              <span className="relative text-white">View Concept Projects</span>
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   );
