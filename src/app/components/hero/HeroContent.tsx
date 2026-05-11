@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Container from "../../components/Container";
 
+
 const PORTFOLIO_IMAGES = [
   "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1772946548/Screenshot_2026-03-08_at_10.54.00_AM_d92gva.png",
   "https://res.cloudinary.com/dmq5tx0bd/image/upload/v1772946265/Screenshot_2026-03-08_at_10.49.17_AM_wggrq6.png",
@@ -180,11 +181,10 @@ const HeroProjectShowcase = ({ images }: { images: string[] }) => {
               key={idx}
               onClick={() => scrollToSlide(idx, true)}
               aria-label={`Go to slide ${idx + 1}`}
-              className={`rounded-full transition-all duration-300 ${
-                activeSlide === idx
+              className={`rounded-full transition-all duration-300 ${activeSlide === idx
                   ? "w-5 h-1.5 bg-blue-600"
                   : "w-1.5 h-1.5 bg-gray-300"
-              }`}
+                }`}
             />
           ))}
         </div>
@@ -265,11 +265,10 @@ function HeroContent() {
       {/* Navbar implementation */}
       <header className="fixed top-0 left-0 right-0 z-50">
         <nav
-          className={`transition-all duration-300 ${
-            isScrolled
+          className={`transition-all duration-300 ${isScrolled
               ? "mt-2 sm:mt-4 mx-4 sm:mx-6 lg:mx-auto max-w-4xl px-6 sm:px-8 bg-white/80 backdrop-blur-md rounded-sm border border-gray-200 shadow-sm py-4"
               : "w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 bg-transparent border-transparent"
-          }`}
+            }`}
         >
           <div className="flex items-center justify-between">
             <Link
